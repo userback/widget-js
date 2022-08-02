@@ -1,0 +1,15 @@
+{
+  "name": "userback-npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "react",
+    "react-test"
+  ],
+  "scripts": {
+    "start": "yarn workspace userback-react build && yarn workspace react-test start"
+  },
+  "packageManager": "yarn@3.2.2"
+}
