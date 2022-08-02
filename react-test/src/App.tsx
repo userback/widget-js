@@ -5,9 +5,11 @@ import Userback from 'userback-react'
 
 function App() {
   const [count, setCount] = useState(0)
+  const token = import.meta.env.VITE_UB_TOKEN
+  const domain = import.meta.env.VITE_UB_DOMAIN
   return (
     <div className="App">
-      <Userback />
+      <Userback token={token} domain={domain} />
       <div>
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />

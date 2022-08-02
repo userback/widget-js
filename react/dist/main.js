@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
-var useUserback = function(param) {
-    var token = param.token, endpoint = param.endpoint, src = param.src;
+var useUserback = function(token, domain) {
     useEffect(function() {
+        // Validation
+        if (!token) {
+            return console.error("A valid token must be provided from https://userback.io");
+        }
+        var ubDomain = domain || "userback.io";
         // Setup Userback configuration
         window.Userback = window.Userback || {};
-        window.Userback.request_url = endpoint || "https://api.userback.io.local";
-        window.Userback.widget_css = "https://app.userback.io.local/dist/css/widget.css";
-        window.Userback.access_token = token || "1|1|mMtJD7dcQrg8I3tjOcKW61PDe";
+        window.Userback.request_url = "https://api.".concat(ubDomain);
+        window.Userback.widget_css = "https://app.".concat(ubDomain, "/dist/css/widget.css");
+        window.Userback.access_token = token;
         // Create and inject script tag on usage
         var script = document.createElement("script");
-        script.src = src || "https://app.userback.io.local/dist/js/widget.min.js";
+        script.src = "https://app.".concat(ubDomain, "/dist/js/widget.min.js");
         script.async = true;
         document.body.appendChild(script);
         // On unmount
@@ -19,12 +23,8 @@ var useUserback = function(param) {
     });
 };
 export default function Userback(param) {
-    var token = param.token, endpoint = param.endpoint, src = param.src;
-    useUserback({
-        token: token,
-        endpoint: endpoint,
-        src: src
-    });
+    var token = param.token, domain = param.domain;
+    useUserback(token, domain);
     return /*#__PURE__*/ React.createElement(React.Fragment, null);
 };
 
