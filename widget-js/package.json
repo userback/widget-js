@@ -1,0 +1,24 @@
+{
+  "name": "@userback/widget",
+  "description": "Userback.io widget for Javascript and Typescript",
+  "version": "0.1.0",
+  "main": "dist/widget.js",
+  "module": "dist/widget.mjs",
+  "umd": "dist/widget.umd.js",
+  "types": "dist/widget.d.ts",
+  "scripts": {
+    "build": "tsc --noEmit && rollup -c",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.4",
+    "rollup": "^2.77.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "userback"
+  ],
+  "homepage": "https://github.com/userback/widget-js/widget-js#readme",
+  "packageManager": "yarn@3.2.2"
+}

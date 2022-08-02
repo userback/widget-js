@@ -1,0 +1,34 @@
+version: "3.8"
+
+x-base: &base
+  image: node:18
+  networks:
+    core:
+  volumes:
+    - .:/app
+  working_dir: /app
+  environment:
+    - VITE_UB_TOKEN
+    - VITE_UB_DOMAIN
+
+services:
+  example-widget:
+    <<: *base
+    command: yarn workspace example-js run serve
+  example-react:
+    <<: *base
+    command: yarn workspace example-react run serve
+  example-vue:
+    <<: *base
+    command: yarn workspace example-react run serve
+
+  playwright:
+    build:
+      context: .
+      target: e2e
+    networks:
+      - core
+    profiles: ["e2e"]
+
+networks:
+  core:

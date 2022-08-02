@@ -1,0 +1,27 @@
+# Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+node_modules/
+.yarn-integrity
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+*/.yarn/*
+
+# Dist Folders
+widget-*/dist/*
+examples/*/dist
+
+# npm packages
+package.tgz
+
+# Environment file
+.env
+
+# e2e yarn modules (Since we install only it via a docker container sometimes)
+e2e/yarn.lock
+e2e/.cache
+e2e/.pki
+e2e/.yarnrc

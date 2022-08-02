@@ -1,0 +1,11 @@
+{
+  "name": "e2e",
+  "private": true,
+  "scripts": {
+    "test": "playwright test"
+  },
+  "packageManager": "yarn@3.2.2",
+  "dependencies": {
+    "@playwright/test": "^1.25.0"
+  }
+}

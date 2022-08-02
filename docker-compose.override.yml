@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  playwright:
+    networks:
+      - core
+      - userback
+
+networks:
+  userback:
+    external: true
+    name: userback-ingress

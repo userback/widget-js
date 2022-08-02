@@ -1,0 +1,21 @@
+{
+  "name": "example-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "yarn build && vite preview --host --port 3000"
+  },
+  "dependencies": {
+    "@userback/vue": "workspace:^",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.5",
+    "vue-tsc": "^0.38.9"
+  }
+}

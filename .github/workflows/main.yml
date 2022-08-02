@@ -1,0 +1,44 @@
+name: Userback Widgets
+
+on:
+  push:
+    branches: [ develop, master ]
+  pull_request:
+    branches: [ develop, master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'yarn'
+    - run: yarn --immutable
+    - run: yarn build
+    - run: yarn test
+
+  end2end:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      VITE_UB_TOKEN: ${{ secrets.UB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+    - run: yarn
+    - run: yarn build
+    - run: docker compose up -d
+    - run: docker compose build playwright
+    - run: docker compose logs
+    - run: docker compose -f docker-compose.yml run playwright
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30

@@ -1,0 +1,37 @@
+{
+  "name": "root",
+  "description": "Root workspace for userback.io npm packages",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "widget-*",
+    "examples/*",
+    "e2e"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach --no-private -p run build",
+    "build:widget": "yarn workspace @userback/widget build",
+    "build:react": "yarn workspace @userback/react build",
+    "build:vue": "yarn workspace @userback/vue build",
+    "start:widget": "yarn workspace example-js start",
+    "start:react": "yarn workspace example-react start",
+    "start:vue": "yarn workspace example-vue start",
+    "test": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
+    "test:e2e": "yarn workspace e2e run test",
+    "publish": "yarn workspaces foreach --no-private run publish",
+    "lint": "yarn eslint . --ext js,ts,jsx,tsx"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^4.7.4"
+  },
+  "packageManager": "yarn@3.2.2"
+}
