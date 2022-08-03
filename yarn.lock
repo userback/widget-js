@@ -650,6 +650,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@userback.io/widget-js@workspace:widget-js":
+  version: 0.0.0-use.local
+  resolution: "@userback.io/widget-js@workspace:widget-js"
+  languageName: unknown
+  linkType: soft
+
 "@userback.io/widget-react@workspace:^, @userback.io/widget-react@workspace:widget-react":
   version: 0.0.0-use.local
   resolution: "@userback.io/widget-react@workspace:widget-react"
@@ -659,6 +665,12 @@ __metadata:
     chokidar: ^3.5.3
     react: ^18.2.0
     react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
+"@userback.io/widget-vue@workspace:widget-vue":
+  version: 0.0.0-use.local
+  resolution: "@userback.io/widget-vue@workspace:widget-vue"
   languageName: unknown
   linkType: soft
 
@@ -2394,18 +2406,6 @@ __metadata:
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
   languageName: node
   linkType: hard
-
-"widget-js@workspace:widget-js":
-  version: 0.0.0-use.local
-  resolution: "widget-js@workspace:widget-js"
-  languageName: unknown
-  linkType: soft
-
-"widget-vue@workspace:widget-vue":
-  version: 0.0.0-use.local
-  resolution: "widget-vue@workspace:widget-vue"
-  languageName: unknown
-  linkType: soft
 
 "wrappy@npm:1":
   version: 1.0.2

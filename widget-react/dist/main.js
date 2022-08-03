@@ -9,7 +9,6 @@ var useUserback = function(token, domain) {
         // Setup Userback configuration
         window.Userback = window.Userback || {};
         window.Userback.request_url = "https://api.".concat(ubDomain);
-        window.Userback.widget_css = "https://app.".concat(ubDomain, "/dist/css/widget.css");
         window.Userback.access_token = token;
         // Create and inject script tag on usage
         var script = document.createElement("script");

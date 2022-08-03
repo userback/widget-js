@@ -3,7 +3,34 @@ import ReactDOM from 'react-dom'
 
 interface UserbackProps {
   token: string,
-  domain: string,
+  domain?: string,
+  options?: {
+    email: string,
+    name: string,
+    categories: string,
+    priority: string,
+    custom_data: any,
+    is_live: boolean,
+    native_screenshot: boolean,
+  },
+  widgetSettings?: {
+    language: string,
+    style: string,
+    position: string,
+    trigger_type: string,
+    device_type?: "desktop" | "tablet" | "phone",
+    help_link: string,
+    help_title: string,
+    help_message: string,
+    logo: string,
+    form_settings: {
+      general: {
+        rating_type: "star" | "emoji" | "heart" | "thumb",
+        rating_help_message: string,
+        // @TODO
+      }
+    }
+  },
 }
 
 const useUserback = ( token: string, domain?: string ) => {
@@ -14,7 +41,6 @@ const useUserback = ( token: string, domain?: string ) => {
     // Setup Userback configuration
     window.Userback = window.Userback || {};
     window.Userback.request_url = `https://api.${ubDomain}`;
-    window.Userback.widget_css = `https://app.${ubDomain}/dist/css/widget.css`;
     window.Userback.access_token = token;
 
     // Create and inject script tag on usage
