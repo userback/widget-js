@@ -1,4 +1,17 @@
 {
   "name": "test-js",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@userback.io/widget-js": "workspace:^"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0"
+  },
   "packageManager": "yarn@3.2.2"
 }

@@ -1,4 +1,14 @@
 {
   "name": "@userback.io/widget-js",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "swc main.tsx -o dist/main.js --delete-dir-on-start",
+    "start": "yarn build -w"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.222",
+    "chokidar": "^3.5.3"
+  },
   "packageManager": "yarn@3.2.2"
 }

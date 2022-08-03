@@ -650,9 +650,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback.io/widget-js@workspace:widget-js":
+"@userback.io/widget-js@workspace:^, @userback.io/widget-js@workspace:widget-js":
   version: 0.0.0-use.local
   resolution: "@userback.io/widget-js@workspace:widget-js"
+  dependencies:
+    "@swc/cli": ^0.1.57
+    "@swc/core": ^1.2.222
+    chokidar: ^3.5.3
   languageName: unknown
   linkType: soft
 
@@ -2262,6 +2266,10 @@ __metadata:
 "test-js@workspace:test-js":
   version: 0.0.0-use.local
   resolution: "test-js@workspace:test-js"
+  dependencies:
+    "@userback.io/widget-js": "workspace:^"
+    typescript: ^4.6.4
+    vite: ^3.0.0
   languageName: unknown
   linkType: soft
 
