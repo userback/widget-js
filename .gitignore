@@ -10,3 +10,6 @@ node_modules/
 !.yarn/sdks
 !.yarn/versions
 */.yarn/*
+
+widget-*/dist/*
+package.tgz

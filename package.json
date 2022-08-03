@@ -10,11 +10,12 @@
     "test-*"
   ],
   "scripts": {
+    "build": "yarn workspaces foreach --no-private run build",
     "build:js": "yarn workspace @userback.io/widget-js build",
     "build:react": "yarn workspace @userback.io/widget-react build",
     "start:js": "yarn workspace test-js start",
-    "start:react": "yarn workspace test-react start",
-    "start": "yarn build:react && yarn start:react"
+    "start:react": "yarn build:react && yarn workspace test-react start",
+    "publish": "yarn workspaces foreach --no-private run publish"
   },
   "packageManager": "yarn@3.2.2"
 }
