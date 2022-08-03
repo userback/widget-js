@@ -27,7 +27,7 @@ interface UserbackProps {
       general: {
         rating_type: "star" | "emoji" | "heart" | "thumb",
         rating_help_message: string,
-        // @TODO
+        // @TODO finish
       }
     }
   },

@@ -1,3 +1,4 @@
+// Typescript Definitions
 interface UserbackWidget {
   init: Function,
 }

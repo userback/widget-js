@@ -1,18 +1,19 @@
 {
   "name": "@userback.io/widget-react",
-  "version": "1.0.0",
+  "description": "Userback.io widget for React",
+  "version": "0.0.0",
   "main": "dist/main.js",
-  "license": "MIT",
+  "types": "dist/main.d.ts",
   "scripts": {
-    "build": "swc main.tsx -o dist/main.js --delete-dir-on-start",
-    "start": "yarn build -w"
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.222",
-    "chokidar": "^3.5.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "typescript": "^4.7.4"
   },
   "packageManager": "yarn@3.2.2"
 }
