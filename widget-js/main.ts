@@ -1,6 +1,15 @@
+interface UserbackWidget {
+  init: Function,
+}
 
-export default function UserbackWidget(token: string, options){
-  return new Promise(function(resolve, reject){
+declare global {
+  interface Window {
+    Userback: UserbackWidget;
+  }
+}
+
+export default function UserbackWidgetLoader(token: string, options: any): Promise<UserbackWidget> {
+  return new Promise(function(resolve, reject) {
 
     // Validation
     if(typeof window.Userback !== 'undefined'){ return reject('Userback widget loaded twice, canceling init') }
@@ -9,7 +18,7 @@ export default function UserbackWidget(token: string, options){
     // Defaults
     const ubDomain = options.domain || 'userback.io'
     // @NOTE: have to init the window.Userback in order to set request_url for localdev
-    window.Userback = { request_url: `https://api.${ubDomain}` }
+    window.Userback = { request_url: `https://api.${ubDomain}` } as any
 
     // Userback loaded
     function onload(){

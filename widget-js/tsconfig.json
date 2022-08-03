@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "files": [
+    "index.d.ts",
+    "main.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
