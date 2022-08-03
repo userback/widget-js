@@ -1,15 +1,18 @@
 {
-  "name": "userback-npm",
+  "name": "root",
+  "description": "Root workspace for userback.io npm packages",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "react",
-    "react-test"
+    "widget-*",
+    "test-*"
   ],
   "scripts": {
-    "start": "yarn workspace userback-react build && yarn workspace react-test start"
+    "build:react": "yarn workspace @userback.io/widget-react build",
+    "start:react": "yarn workspace test-react start",
+    "start": "yarn build:react && yarn start:react"
   },
   "packageManager": "yarn@3.2.2"
 }

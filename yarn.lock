@@ -650,6 +650,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@userback.io/widget-react@workspace:^, @userback.io/widget-react@workspace:widget-react":
+  version: 0.0.0-use.local
+  resolution: "@userback.io/widget-react@workspace:widget-react"
+  dependencies:
+    "@swc/cli": ^0.1.57
+    "@swc/core": ^1.2.222
+    chokidar: ^3.5.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
 "@vitejs/plugin-react@npm:^2.0.0":
   version: 2.0.0
   resolution: "@vitejs/plugin-react@npm:2.0.0"
@@ -1938,21 +1950,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-test@workspace:react-test":
-  version: 0.0.0-use.local
-  resolution: "react-test@workspace:react-test"
-  dependencies:
-    "@types/react": ^18.0.15
-    "@types/react-dom": ^18.0.6
-    "@vitejs/plugin-react": ^2.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    typescript: ^4.6.4
-    userback-react: "workspace:^"
-    vite: ^3.0.0
-  languageName: unknown
-  linkType: soft
-
 "react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -2046,6 +2043,12 @@ __metadata:
   checksum: 5a84fb98a6f858906bceba091430442f6c1f362b07c5fa9123b708f87e39f52640e34a189cd9a1776ceae61300055c78ba648205fa03188451539ebeb19797df
   languageName: node
   linkType: hard
+
+"root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root@workspace:."
+  languageName: unknown
+  linkType: soft
 
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
@@ -2244,6 +2247,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"test-js@workspace:test-js":
+  version: 0.0.0-use.local
+  resolution: "test-js@workspace:test-js"
+  languageName: unknown
+  linkType: soft
+
+"test-react@workspace:test-react":
+  version: 0.0.0-use.local
+  resolution: "test-react@workspace:test-react"
+  dependencies:
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.6
+    "@userback.io/widget-react": "workspace:^"
+    "@vitejs/plugin-react": ^2.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    typescript: ^4.6.4
+    vite: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
 "to-fast-properties@npm:^2.0.0":
   version: 2.0.0
   resolution: "to-fast-properties@npm:2.0.0"
@@ -2312,24 +2336,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"userback-npm@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "userback-npm@workspace:."
-  languageName: unknown
-  linkType: soft
-
-"userback-react@workspace:^, userback-react@workspace:react":
-  version: 0.0.0-use.local
-  resolution: "userback-react@workspace:react"
-  dependencies:
-    "@swc/cli": ^0.1.57
-    "@swc/core": ^1.2.222
-    chokidar: ^3.5.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "util-deprecate@npm:^1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -2388,6 +2394,18 @@ __metadata:
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
   languageName: node
   linkType: hard
+
+"widget-js@workspace:widget-js":
+  version: 0.0.0-use.local
+  resolution: "widget-js@workspace:widget-js"
+  languageName: unknown
+  linkType: soft
+
+"widget-vue@workspace:widget-vue":
+  version: 0.0.0-use.local
+  resolution: "widget-vue@workspace:widget-vue"
+  languageName: unknown
+  linkType: soft
 
 "wrappy@npm:1":
   version: 1.0.2

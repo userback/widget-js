@@ -1,5 +1,5 @@
 {
-  "name": "userback-react",
+  "name": "@userback.io/widget-react",
   "version": "1.0.0",
   "main": "dist/main.js",
   "license": "MIT",
