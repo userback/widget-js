@@ -10,7 +10,9 @@
     "test-*"
   ],
   "scripts": {
+    "build:js": "yarn workspace @userback.io/widget-js build",
     "build:react": "yarn workspace @userback.io/widget-react build",
+    "start:js": "yarn workspace test-js start",
     "start:react": "yarn workspace test-react start",
     "start": "yarn build:react && yarn start:react"
   },

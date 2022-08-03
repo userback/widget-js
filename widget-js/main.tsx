@@ -16,7 +16,6 @@ export default function UserbackWidget(token: string, options){
       window.Userback.init(token, {
         //...options,
         on_load: () => {
-          console.log('widget is loaded');
           if(typeof options.on_load === 'function'){ options.on_load(); }
           resolve(window.Userback)
         }
@@ -28,7 +27,7 @@ export default function UserbackWidget(token: string, options){
     script.src = `https://app.${ubDomain}/dist/js/widget.min.js`;
     script.async = true;
     script.onload = onload;
+    script.onerror = (error) => reject(error);
     document.body.appendChild(script);
-
   })
 }
