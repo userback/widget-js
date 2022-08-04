@@ -10,6 +10,9 @@
     "build": "rollup -c",
     "watch": "tsc -w"
   },
+  "dependencies": {
+    "@userback/widget": "workspace:^"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.4",
     "@types/react": "^18.0.15",

@@ -1,40 +1,16 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import { UserbackOptions, UserbackWidget, UserbackWidgetSettings } from '@userback/widget'
 
 declare global {
-  interface Window { Userback: any; }
+  interface Window { Userback: UserbackWidget; }
 }
 
-interface UserbackProps {
+interface UserbackReactProps {
   token: string,
   domain?: string,
-  options?: {
-    email: string,
-    name: string,
-    categories: string,
-    priority: string,
-    custom_data: any,
-    is_live: boolean,
-    native_screenshot: boolean,
-  },
-  widgetSettings?: {
-    language: string,
-    style: string,
-    position: string,
-    trigger_type: string,
-    device_type?: "desktop" | "tablet" | "phone",
-    help_link: string,
-    help_title: string,
-    help_message: string,
-    logo: string,
-    form_settings: {
-      general: {
-        rating_type: "star" | "emoji" | "heart" | "thumb",
-        rating_help_message: string,
-        // @TODO finish
-      }
-    }
-  },
+  options?: UserbackOptions,
+  widgetSettings?: UserbackWidgetSettings,
 }
 
 const useUserback = ( token: string, domain?: string ) => {
@@ -59,7 +35,7 @@ const useUserback = ( token: string, domain?: string ) => {
   });
 };
 
-export default function Userback({ token, domain }: UserbackProps) {
+export default function Userback({ token, domain }: UserbackReactProps) {
   useUserback( token, domain )
   return (<></>)
 }
