@@ -1,5 +1,9 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
+
+declare global {
+  interface Window { Userback: any; }
+}
 
 interface UserbackProps {
   token: string,

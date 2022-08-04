@@ -9,7 +9,7 @@
     "esModuleInterop": true
   },
   "files": [
-    "main.ts"
+    "widget.ts"
   ],
   "exclude": [
     "node_modules",

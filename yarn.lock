@@ -435,29 +435,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback/widget-js@workspace:^, @userback/widget-js@workspace:widget-js":
+"@userback/react@workspace:^, @userback/react@workspace:widget-react":
   version: 0.0.0-use.local
-  resolution: "@userback/widget-js@workspace:widget-js"
-  dependencies:
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
-
-"@userback/widget-react@workspace:^, @userback/widget-react@workspace:widget-react":
-  version: 0.0.0-use.local
-  resolution: "@userback/widget-react@workspace:widget-react"
+  resolution: "@userback/react@workspace:widget-react"
   dependencies:
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
-    react: ^18.2.0
-    react-dom: ^18.2.0
     typescript: ^4.7.4
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
   languageName: unknown
   linkType: soft
 
-"@userback/widget-vue@workspace:widget-vue":
+"@userback/vue@workspace:widget-vue":
   version: 0.0.0-use.local
-  resolution: "@userback/widget-vue@workspace:widget-vue"
+  resolution: "@userback/vue@workspace:widget-vue"
+  languageName: unknown
+  linkType: soft
+
+"@userback/widget@workspace:^, @userback/widget@workspace:widget-js":
+  version: 0.0.0-use.local
+  resolution: "@userback/widget@workspace:widget-js"
+  dependencies:
+    typescript: ^4.7.4
   languageName: unknown
   linkType: soft
 
@@ -993,7 +994,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-js@workspace:examples/js"
   dependencies:
-    "@userback/widget-js": "workspace:^"
+    "@userback/widget": "workspace:^"
     typescript: ^4.6.4
     vite: ^3.0.0
   languageName: unknown
@@ -1005,7 +1006,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
-    "@userback/widget-react": "workspace:^"
+    "@userback/react": "workspace:^"
     "@vitejs/plugin-react": ^2.0.0
     react: ^18.2.0
     react-dom: ^18.2.0

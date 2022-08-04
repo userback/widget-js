@@ -10,9 +10,9 @@
   ],
   "scripts": {
     "build": "yarn workspaces foreach --no-private run build",
-    "build:js": "yarn workspace @userback.io/widget-js build",
-    "build:react": "yarn workspace @userback.io/widget-react build",
-    "start:js": "yarn workspace example-js start",
+    "build:widget": "yarn workspace @userback.io/widget build",
+    "build:react": "yarn workspace @userback.io/react build",
+    "start:widget": "yarn workspace example-js start",
     "start:react": "yarn workspace example-react start",
     "publish": "yarn workspaces foreach --no-private run publish"
   },

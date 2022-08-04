@@ -1,9 +1,9 @@
 {
-  "name": "@userback/widget-react",
+  "name": "@userback/react",
   "description": "Userback.io widget for React",
-  "version": "0.0.0",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "version": "0.1.0",
+  "main": "dist/react.js",
+  "types": "dist/react.d.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w"
@@ -11,9 +11,11 @@
   "devDependencies": {
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "packageManager": "yarn@3.2.2"
 }

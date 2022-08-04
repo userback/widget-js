@@ -6,7 +6,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@userback/widget-js": "workspace:^"
+    "@userback/widget": "workspace:^"
   },
   "devDependencies": {
     "typescript": "^4.6.4",

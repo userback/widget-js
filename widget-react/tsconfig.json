@@ -6,11 +6,13 @@
     "lib": ["es6", "dom"],
     "declaration": true,
     "outDir": "dist",
-    "strict": false,
-    "esModuleInterop": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node"
   },
   "files": [
-    "main.tsx"
+    "react.tsx"
   ],
   "exclude": [
     "node_modules",
