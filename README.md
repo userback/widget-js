@@ -1,4 +1,4 @@
-# Userback npm packages
+# Userback Widgets
 
 A Monolithic repo for Userback.io npm packages:
 
@@ -10,12 +10,12 @@ A Monolithic repo for Userback.io npm packages:
 After cloning the repo, you can install all dependecies and build the widgets with:
 ```yarn && yarn build```
 
-After which you can run an example package using`yarn start:js` or `yarn start:react`.
+After which you can run an example package using `yarn start:js` or `yarn start:react`.
 
 ## @TODO
 
 - docs
-- more correct props/defaults
+- more correct props/defaults (env)
 - Finish types
 - Publish
 - Improved Testing (jest)
