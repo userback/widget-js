@@ -1,7 +1,16 @@
-# Userback Widgets
+<p align="center"><img src="https://raw.githubusercontent.com/userback/widget-js/master/logo.png" alt="Logo" height="120px" /></p>
+<h1 align="center">Userback Widgets</h1>
+<p align="center">A Monolithic repository for [Userback.io](https://userback.io) npm packages</p>
 
-A Monolithic repo for Userback.io npm packages:
+<p align="center">
+<img alt="ci" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
+<img alt="version" src="https://img.shields.io/npm/v/@userback/widget.svg" />
+<img alt="downloads" src="https://badgen.net/npm/dw/@userback/widget" />
+<img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/@userback/widget">
+<img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
+</p>
 
+## Packages
 - [@userback/widget](widget-js/)
 - [@userback/react](widget-react/)
 - [@userback/vue](widget-vue/)
@@ -21,7 +30,6 @@ VITE_UB_TOKEN=XXXxxxXXX
 For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
 
 ## @TODO
-- Finish types
 - Publish 📦🔥
 - Add named functions
 - Flush out Documentation
