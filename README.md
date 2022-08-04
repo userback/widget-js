@@ -1,6 +1,6 @@
 <p align="center"><img src="https://raw.githubusercontent.com/userback/widget-js/master/logo.svg" alt="Logo" height="120px" /></p>
 <h1 align="center">Userback Widgets</h1>
-<p align="center">A Monolithic repository for [Userback.io](https://userback.io) npm packages</p>
+<p align="center">A Monolithic repository for [Userback.io](https://userback.io) npm packages :package:</p>
 
 <p align="center">
 <img alt="ci" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
