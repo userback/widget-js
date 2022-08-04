@@ -16,7 +16,9 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
-  "keywords": ["userback"],
+  "keywords": [
+    "userback"
+  ],
   "homepage": "https://github.com/userback/widget-js/widget-js#readme",
   "packageManager": "yarn@3.2.2"
 }

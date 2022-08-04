@@ -22,7 +22,10 @@
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
-  "keywords": ["userback", "react"],
+  "keywords": [
+    "userback",
+    "react"
+  ],
   "homepage": "https://github.com/userback/widget-js/widget-react#readme",
   "packageManager": "yarn@3.2.2"
 }

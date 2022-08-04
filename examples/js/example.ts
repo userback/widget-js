@@ -1,7 +1,8 @@
 import UserbackWidget from '@userback/widget'
 
-UserbackWidget('1|1|mMtJD7dcQrg8I3tjOcKW61PDe', {
-  domain: 'userback.io.local'
-}).then((userback) => {
-  console.log('Widget Loaded', userback)
+const token = import.meta.env.VITE_UB_TOKEN
+const domain = import.meta.env.VITE_UB_DOMAIN
+
+UserbackWidget(token, { domain }).then((userback) => {
+  console.log('🚀 Widget Loaded', userback)
 })

@@ -7,15 +7,22 @@ A Monolithic repo for Userback.io npm packages:
 - [@userback/widget-vue](widget-vue/)
 
 ## Quickstart
-After cloning the repo, you can install all dependecies and build the widgets with:
+After cloning the repo, you can install all dependencies and build the widgets with:
 ```yarn && yarn build```
 
 After which you can run an example package using `yarn start:js` or `yarn start:react`.
 
-## @TODO
+To provide your api token, create a `.env` file containing your Userback api key like the following: 
+``` sh
+VITE_UB_TOKEN=XXXxxxXXX
+```
 
+## Documentation
+For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
+
+## @TODO
 - docs
-- more correct props/defaults (env)
 - Finish types
-- Publish
-- Improved Testing (jest)
+- Publish 📦🔥
+- Jest unit testing
+- Playwright e2e testing
