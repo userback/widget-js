@@ -5,7 +5,6 @@
 <p align="center">
 <img alt="ci" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
 <img alt="version" src="https://img.shields.io/npm/v/@userback/widget.svg" />
-<img alt="downloads" src="https://badgen.net/npm/dw/@userback/widget" />
 <img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/@userback/widget">
 <img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
 </p>
