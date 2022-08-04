@@ -12,4 +12,5 @@ node_modules/
 */.yarn/*
 
 widget-*/dist/*
+examples/*/dist
 package.tgz

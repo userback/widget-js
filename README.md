@@ -15,8 +15,7 @@ After which you can run an example package using`yarn start:js` or `yarn start:r
 ## @TODO
 
 - docs
-- npm packing
 - more correct props/defaults
-- CI
 - Finish types
 - Publish
+- Improved Testing (jest)
