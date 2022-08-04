@@ -1,4 +1,4 @@
-import UserbackWidget from '@userback.io/widget-js'
+import UserbackWidget from '@userback/widget-js'
 
 UserbackWidget('1|1|mMtJD7dcQrg8I3tjOcKW61PDe', {
   domain: 'userback.io.local'

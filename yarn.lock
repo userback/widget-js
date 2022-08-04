@@ -435,17 +435,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback.io/widget-js@workspace:^, @userback.io/widget-js@workspace:widget-js":
+"@userback/widget-js@workspace:^, @userback/widget-js@workspace:widget-js":
   version: 0.0.0-use.local
-  resolution: "@userback.io/widget-js@workspace:widget-js"
+  resolution: "@userback/widget-js@workspace:widget-js"
   dependencies:
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
 
-"@userback.io/widget-react@workspace:^, @userback.io/widget-react@workspace:widget-react":
+"@userback/widget-react@workspace:^, @userback/widget-react@workspace:widget-react":
   version: 0.0.0-use.local
-  resolution: "@userback.io/widget-react@workspace:widget-react"
+  resolution: "@userback/widget-react@workspace:widget-react"
   dependencies:
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
@@ -455,9 +455,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@userback.io/widget-vue@workspace:widget-vue":
+"@userback/widget-vue@workspace:widget-vue":
   version: 0.0.0-use.local
-  resolution: "@userback.io/widget-vue@workspace:widget-vue"
+  resolution: "@userback/widget-vue@workspace:widget-vue"
   languageName: unknown
   linkType: soft
 
@@ -988,6 +988,31 @@ __metadata:
   checksum: 6092fda75c63b110c706b6a9bfde8a612ad595b628f0bd2147eea1d3406723020810e591effc7db1da91d80a71a737a313567c5abb3813e8d9c71f4aa595b410
   languageName: node
   linkType: hard
+
+"example-js@workspace:examples/js":
+  version: 0.0.0-use.local
+  resolution: "example-js@workspace:examples/js"
+  dependencies:
+    "@userback/widget-js": "workspace:^"
+    typescript: ^4.6.4
+    vite: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
+"example-react@workspace:examples/react":
+  version: 0.0.0-use.local
+  resolution: "example-react@workspace:examples/react"
+  dependencies:
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.6
+    "@userback/widget-react": "workspace:^"
+    "@vitejs/plugin-react": ^2.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    typescript: ^4.6.4
+    vite: ^3.0.0
+  languageName: unknown
+  linkType: soft
 
 "fs-minipass@npm:^2.0.0, fs-minipass@npm:^2.1.0":
   version: 2.1.0
@@ -1844,31 +1869,6 @@ __metadata:
   checksum: a04c07bb9e2d8f46776517d4618f2406fb977a74d914ad98b264fc3db0fe8224da5bec11e5f8902c5b9bcb8ace22d95fbe3c7b36b8593b7dfc8391a25898f32f
   languageName: node
   linkType: hard
-
-"test-js@workspace:test-js":
-  version: 0.0.0-use.local
-  resolution: "test-js@workspace:test-js"
-  dependencies:
-    "@userback.io/widget-js": "workspace:^"
-    typescript: ^4.6.4
-    vite: ^3.0.0
-  languageName: unknown
-  linkType: soft
-
-"test-react@workspace:test-react":
-  version: 0.0.0-use.local
-  resolution: "test-react@workspace:test-react"
-  dependencies:
-    "@types/react": ^18.0.15
-    "@types/react-dom": ^18.0.6
-    "@userback.io/widget-react": "workspace:^"
-    "@vitejs/plugin-react": ^2.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    typescript: ^4.6.4
-    vite: ^3.0.0
-  languageName: unknown
-  linkType: soft
 
 "to-fast-properties@npm:^2.0.0":
   version: 2.0.0

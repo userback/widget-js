@@ -1,5 +1,5 @@
 {
-  "name": "@userback.io/widget-react",
+  "name": "@userback/widget-react",
   "description": "Userback.io widget for React",
   "version": "0.0.0",
   "main": "dist/main.js",

@@ -1,19 +1,22 @@
-## Userback npm plugins
+# Userback npm packages
 
-A monorepo for building and testing npm packages related to userback, in particular:
+A Monolithic repo for Userback.io npm packages:
 
-- React
-- Vue
-- and many more
+- [@userback/widget-js](widget-js/)
+- [@userback/widget-react](widget-react/)
+- [@userback/widget-vue](widget-vue/)
 
-### Quickstart
-Open the testing react environment via vite
+## Quickstart
+After cloning the repo, you can install all dependecies and build the widgets with:
+```yarn && yarn build```
 
-`yarn && yarn start`
+After which you can run an example package using`yarn start:js` or `yarn start:react`.
 
-### @TODO
+## @TODO
 
+- docs
 - npm packing
-- working typescript imports
-- build commonjs version
 - more correct props/defaults
+- CI
+- Finish types
+- Publish

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Userback from '@userback.io/widget-react'
+import Userback from '@userback/widget-react'
 
 function App() {
   const [count, setCount] = useState(0)

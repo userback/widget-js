@@ -1,12 +1,12 @@
 {
-  "name": "test-js",
+  "name": "example-js",
   "version": "0.0.0",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@userback.io/widget-js": "workspace:^"
+    "@userback/widget-js": "workspace:^"
   },
   "devDependencies": {
     "typescript": "^4.6.4",

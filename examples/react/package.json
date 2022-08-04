@@ -1,5 +1,5 @@
 {
-  "name": "test-react",
+  "name": "example-react",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@userback.io/widget-react": "workspace:^",
+    "@userback/widget-react": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
