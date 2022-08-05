@@ -3,7 +3,7 @@
 <p align="center">A Monolithic repository for [Userback.io](https://userback.io) npm packages :package:</p>
 
 <p align="center">
-<img alt="ci" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
+<img alt="ci status" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
 <img alt="version" src="https://img.shields.io/npm/v/@userback/widget.svg" />
 <img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/@userback/widget">
 <img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
@@ -32,5 +32,4 @@ For more information about available configuration settings and and functions av
 - Publish 📦🔥
 - Add named functions
 - Flush out Documentation
-- Jest unit testing
 - Playwright e2e testing
