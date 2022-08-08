@@ -1,7 +1,7 @@
 import UserbackWidget, { UserbackOptions } from '@userback/widget';
 
-const token = (import.meta as any)?.env.VITE_UB_TOKEN;
-const domain = (import.meta as any)?.env.VITE_UB_DOMAIN;
+const token = (import.meta as any)?.env?.VITE_UB_TOKEN;
+const domain = (import.meta as any)?.env?.VITE_UB_DOMAIN;
 
 const options: UserbackOptions = {
     domain,
