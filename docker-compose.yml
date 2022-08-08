@@ -1,0 +1,23 @@
+version: "3.8"
+
+x-base: &base
+  image: node:18
+  networks:
+    core:
+  volumes:
+    - .:/app
+  working_dir: /app
+  environment:
+    - VITE_UB_TOKEN
+    - VITE_UB_DOMAIN
+
+services:
+  example-widget:
+    <<: *base
+    command: yarn start:widget --port 3000 --host
+  example-react:
+    <<: *base
+    command: yarn start:react --port 3000 --host
+
+networks:
+  core:

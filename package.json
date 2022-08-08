@@ -6,7 +6,8 @@
   "private": true,
   "workspaces": [
     "widget-*",
-    "examples/*"
+    "examples/*",
+    "e2e"
   ],
   "scripts": {
     "build": "yarn workspaces foreach --no-private -p run build",

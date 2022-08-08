@@ -1,0 +1,7 @@
+{
+  "name": "e2e",
+  "packageManager": "yarn@3.2.2",
+  "devDependencies": {
+    "@playwright/test": "^1.24.2"
+  }
+}
