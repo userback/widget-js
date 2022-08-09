@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "start": "vite",
+    "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
+    "@userback/vue": "workspace:^",
     "vue": "^3.2.37"
   },
   "devDependencies": {

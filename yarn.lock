@@ -698,7 +698,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@userback/vue@workspace:widget-vue":
+"@userback/vue@workspace:^, @userback/vue@workspace:widget-vue":
   version: 0.0.0-use.local
   resolution: "@userback/vue@workspace:widget-vue"
   dependencies:
@@ -1936,6 +1936,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-vue@workspace:examples/vue"
   dependencies:
+    "@userback/vue": "workspace:^"
     "@vitejs/plugin-vue": ^3.0.0
     typescript: ^4.6.4
     vite: ^3.0.0

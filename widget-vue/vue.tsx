@@ -1,5 +1,5 @@
 import Userback, { UserbackWidget } from '@userback/widget';
-import { App, Plugin } from 'vue'
+import { Plugin } from 'vue'
 
 declare module 'vue' {
   interface ComponentCustomProperties {
@@ -9,7 +9,7 @@ declare module 'vue' {
 
 const UserbackVue: Plugin = {
     install: (app, vueOptions) => {
-        const { token, options } = vueOptions.userback
+        const { token, ...options } = vueOptions
         Userback(token, options).then(ub => {
             app.config.globalProperties.$userback = ub
         })
