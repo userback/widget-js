@@ -13,7 +13,7 @@ interface UserbackReactProps {
   widgetSettings?: UserbackWidgetSettings,
 }
 
-const useUserback = (token: string, domain?: string) => {
+export const useUserback = (token: string, domain?: string) => {
     useEffect(() => {
     // Validation
         if (!token) { return console.error('A valid token must be provided from https://userback.io'); }

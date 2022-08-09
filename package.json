@@ -10,10 +10,12 @@
   ],
   "scripts": {
     "build": "yarn workspaces foreach --no-private run build",
-    "build:widget": "yarn workspace @userback.io/widget build",
-    "build:react": "yarn workspace @userback.io/react build",
+    "build:widget": "yarn workspace @userback/widget build",
+    "build:react": "yarn workspace @userback/react build",
+    "build:vue": "yarn workspace @userback/vue build",
     "start:widget": "yarn workspace example-js start",
     "start:react": "yarn workspace example-react start",
+    "start:vue": "yarn workspace example-vue start",
     "test": "yarn workspace example-js build && yarn workspace example-react build",
     "publish": "yarn workspaces foreach --no-private run publish",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx"
