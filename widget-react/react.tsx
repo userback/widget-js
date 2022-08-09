@@ -26,7 +26,7 @@ export const useUserback = (token: string, domain?: string) => {
 
         // Create and inject script tag on usage
         const script = document.createElement('script');
-        script.src = `https://app.${ubDomain}/dist/js/widget.min.js`;
+        script.src = `https://static.${ubDomain}/dist/js/widget.min.js`;
         script.async = true;
         document.body.appendChild(script);
 

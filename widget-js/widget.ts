@@ -150,7 +150,7 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         // Create and inject the <script/> tag to start loading Userback
         const script = document.createElement('script');
         // @TODO: ensure static works in localdev
-        script.src = `https://app.${ubDomain}/dist/js/widget.min.js`;
+        script.src = `https://static.${ubDomain}/dist/js/widget.min.js`;
         script.async = true;
         script.onload = onload;
         script.onerror = (error) => reject(error);
