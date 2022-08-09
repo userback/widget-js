@@ -1,8 +1,10 @@
 import UserbackWidget, { UserbackOptions } from '@userback/widget';
 
-const token = (import.meta as any)?.env?.VITE_UB_TOKEN;
-const domain = (import.meta as any)?.env?.VITE_UB_DOMAIN;
+// Environment variables from `../../.env`
+const token = (import.meta as any).env?.VITE_UB_TOKEN;
+const domain = (import.meta as any).env?.VITE_UB_DOMAIN;
 
+// Using options with typescript support
 const options: UserbackOptions = {
     domain,
     name: 'Gavin Belson',
@@ -11,6 +13,7 @@ const options: UserbackOptions = {
     },
 };
 
+// Initialise Userback and log the Userback object to console
 UserbackWidget(token, options).then((userback) => {
-    console.log('🚀 Widget Loaded', userback);
+    console.log('🚀 Userback Widget Loaded', userback);
 });

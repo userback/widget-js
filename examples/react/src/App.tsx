@@ -5,8 +5,8 @@ import Userback from '@userback/react';
 
 function App() {
     const [count, setCount] = useState(0);
-    const token = import.meta.env.VITE_UB_TOKEN;
-    const domain = import.meta.env.VITE_UB_DOMAIN;
+    const token = import.meta.env?.VITE_UB_TOKEN;
+    const domain = import.meta.env?.VITE_UB_DOMAIN;
     return (
         <div className="App">
             <Userback token={token} domain={domain} />
@@ -17,12 +17,8 @@ function App() {
             </div>
             <h1>Vite + React</h1>
             <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-                </button>
-                <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
+                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+                <p>Edit <code>src/App.tsx</code> and save to test HMR</p>
             </div>
         </div>
     );
