@@ -139,7 +139,8 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
                 ...options,
                 on_load: () => {
                     _userback = window.Userback as UserbackWidget
-                    delete window.Userback
+                    // @TODO: Cannot remove window.Userback as there are references inside the widget to it
+                    // delete window.Userback
                     if (typeof options?.on_load === 'function') { options.on_load(); }
 
                     return resolve(_userback);
