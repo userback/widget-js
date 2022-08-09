@@ -106,9 +106,13 @@ export interface UserbackWidget extends UserbackOptions {
 
 declare global {
   interface Window {
-    Userback: UserbackWidget;
+    Userback: UserbackWidget | undefined;
   }
 }
+
+// An internal reference of the `window.Userback` object which will
+// be deleted from the `window` scope when using this module.
+let _userback: UserbackWidget | undefined = undefined;
 
 /*
  * UserbackWidgetLoader
@@ -117,33 +121,46 @@ declare global {
  */
 export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
-    // Validation
-        if (typeof window.Userback !== 'undefined') { return reject('Userback widget loaded twice, canceling init'); }
+        // Validation
+        if (typeof _userback !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
         if (!token) { return reject('A valid token must be provided from https://userback.io'); }
         if (typeof options === 'undefined') { options = {}; }
 
         // Defaults
         const ubDomain = options?.domain || 'userback.io';
-        // @NOTE: have to init the window.Userback in order to set request_url for localdev
+        // @NOTE: have to init using the window.Userback object method in order to set request_url
         window.Userback = { request_url: `https://api.${ubDomain}` } as any;
 
-        // Userback loaded
+        // When the script tag is finished loading, we will move the `window.Userback` reference to
+        // this local module and then provide it back as a promise resolution.
         function onload() {
+            if (typeof window.Userback === 'undefined'){ return reject('`window.Userback` was somehow deleted while loading!') }
             window.Userback.init(token, {
                 ...options,
                 on_load: () => {
+                    _userback = window.Userback as UserbackWidget
+                    delete window.Userback
                     if (typeof options?.on_load === 'function') { options.on_load(); }
-                    resolve(window.Userback);
+
+                    return resolve(_userback);
                 },
             });
         }
 
-        // Create and inject script tag on usage
+        // Create and inject the <script/> tag to start loading Userback
         const script = document.createElement('script');
+        // @TODO: ensure static works in localdev
         script.src = `https://app.${ubDomain}/dist/js/widget.min.js`;
         script.async = true;
         script.onload = onload;
         script.onerror = (error) => reject(error);
         document.body.appendChild(script);
     });
+}
+
+/**
+ * Returns the UserbackWidget if it has been initialised
+ * */
+export function getUserback(){
+    return _userback;
 }
