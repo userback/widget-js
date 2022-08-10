@@ -9,8 +9,11 @@ export interface UserbackOptions {
     /* Set the default priority */
     priority?: string,
     custom_data?: any,
+    /* Is the environment publically accessible (html/css/js assets) */
     is_live?: boolean,
+    /* Options for the widget */
     widget_settings?: UserbackWidgetSettings,
+    /* Use browser built-in Screen Capture API to capture screenshots */
     native_screenshot?: boolean,
     domain?: string,
 
@@ -84,11 +87,13 @@ export interface UserbackWidgetSettings {
   },
 }
 
+export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
+export type UserbackDestinationType = 'screenshot' | 'video' | 'form'
 export interface UserbackFunctions {
     init: (token: string, options: UserbackOptions) => Promise<UserbackWidget>,
     show: () => void,
     hide: () => void,
-    open: (feedback_type?: 'general' | 'bug' | 'feature_request', destination?: 'screenshot' | 'video' | 'form') => void,
+    open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
     close: () => void,
     destroy: () => void,
     /**
