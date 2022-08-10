@@ -25,11 +25,20 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     const [isLoaded, setLoaded] = useState(false);
     const Userback: React.MutableRefObject<UserbackWidget | undefined> = useRef(undefined)
 
-    if(!isLoaded){
-        UserbackInit(token, {...options, widget_settings}).then((ub) => {
+
+    const init = useCallback(async (token: string, options: UserbackOptions) => {
+        return await UserbackInit(token, options).then((ub) => {
             setLoaded(true)
             Userback.current = ub
         })
+    }, []) as (token: string, options: UserbackOptions) => Promise<UserbackWidget>
+
+    if(!isLoaded){
+        //init(token, {...options, widget_settings})
+        UserbackInit(token, {...options, widget_settings}).then((ub) => {
+            Userback.current = ub
+        })
+        setLoaded(true)
     }
 
     // Api hooks
@@ -54,13 +63,6 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         Userback.current = undefined
         setLoaded(false)
     }, [])
-
-    const init = useCallback(async (token: string, options: UserbackOptions) => {
-        return await UserbackInit(token, options).then((ub) => {
-            setLoaded(true)
-            Userback.current = ub
-        })
-    }, []) as (token: string, options: UserbackOptions) => Promise<UserbackWidget>
 
     const setData = useCallback((data: any) => {
         Userback.current?.setData(data)

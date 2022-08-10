@@ -120,6 +120,8 @@ declare global {
 // be deleted from the `window` scope when using this module.
 let _userback: UserbackWidget | undefined = undefined;
 
+// Internal value for ensuring a module cannot load twice
+let _loading = false
 /*
  * UserbackWidgetLoader
  *
@@ -128,9 +130,11 @@ let _userback: UserbackWidget | undefined = undefined;
 export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
         // Validation
+        if ( _loading === true ){ return reject('Userback widget already loading!') }
         if (typeof _userback !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
         if (!token) { return reject('A valid token must be provided from https://userback.io'); }
         if (typeof options === 'undefined') { options = {}; }
+        _loading = true
 
         // Defaults
         const ubDomain = options?.domain || 'userback.io';
@@ -144,11 +148,11 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
             window.Userback.init(token, {
                 ...options,
                 on_load: () => {
+                    _loading = false
                     _userback = window.Userback as UserbackWidget
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
                     if (typeof options?.on_load === 'function') { options.on_load(); }
-
                     return resolve(_userback);
                 },
             });

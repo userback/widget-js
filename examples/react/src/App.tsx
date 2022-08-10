@@ -21,7 +21,9 @@ function App() {
                 <hr />
                 <button onClick={() => open('bug')}>Open Bugs</button>
                 <button onClick={() => open('general', 'screenshot')}>Screenshot me!</button>
-                <p>Edit <code>src/App.tsx</code> and save to test HMR</p>
+                <hr />
+                <button onClick={() => hide()}>Hide</button>
+                <button onClick={() => show()}>Show</button>
             </div>
         </div>
     );
