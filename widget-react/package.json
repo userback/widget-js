@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.4",
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "rollup": "^2.77.2",
     "tslib": "^2.4.0",
