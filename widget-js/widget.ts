@@ -1,28 +1,28 @@
 // Typescript Definitions
 export interface UserbackOptions {
-  /* Used to auto-fill the email field in the feedback form. */
-  email?: string,
-  /* Used to auto-fill the name field in the feedback form. */
-  name?: string,
-  /* Set categories in a comma-seperated string */
-  categories?: string,
-  /* Set the default priority */
-  priority?: string,
-  custom_data?: any,
-  is_live?: boolean,
+    /* Used to auto-fill the email field in the feedback form. */
+    email?: string,
+    /* Used to auto-fill the name field in the feedback form. */
+    name?: string,
+    /* Set categories in a comma-seperated string */
+    categories?: string,
+    /* Set the default priority */
+    priority?: string,
+    custom_data?: any,
+    is_live?: boolean,
+    widget_settings?: UserbackWidgetSettings,
+    native_screenshot?: boolean,
+    domain?: string,
 
-  native_screenshot?: boolean,
-  domain?: string,
-
-  on_load?: Function,
-  /* The on_open event is triggered when the Feedback button is clicked */
-  on_open?: Function,
-  /* The on_close event is triggered when the Close button is clicked */
-  on_close?: Function,
-  /* The before_send event is triggered when the Send button is clicked */
-  before_send?: Function,
-  /* The after_send event is triggered after feedback has been submitted to Userback */
-  after_send?: (data: UserbackAfterSendData) => any,
+    on_load?: Function,
+    /* The on_open event is triggered when the Feedback button is clicked */
+    on_open?: Function,
+    /* The on_close event is triggered when the Close button is clicked */
+    on_close?: Function,
+    /* The before_send event is triggered when the Send button is clicked */
+    before_send?: Function,
+    /* The after_send event is triggered after feedback has been submitted to Userback */
+    after_send?: (data: UserbackAfterSendData) => any,
 }
 
 interface UserbackAfterSendData {
@@ -84,24 +84,25 @@ export interface UserbackWidgetSettings {
   },
 }
 
-export interface UserbackWidget extends UserbackOptions {
-  init: (token: string, options: UserbackOptions) => Promise<UserbackWidget>,
-  show: () => void,
-  hide: () => void,
-  open: (feedback_type?: 'general' | 'bug' | 'feature_request', destination?: 'screenshot' | 'video' | 'form') => void,
-  close: () => void,
-  destroy: () => void,
-  /**
-   * Reset custom data after JavaScript SDK is loaded.
-   *
-   * @param custom_data - A non-nested object containg custom metadata
-   */
-  setData: (custom_data: Object) => void,
+export interface UserbackFunctions {
+    init: (token: string, options: UserbackOptions) => Promise<UserbackWidget>,
+    show: () => void,
+    hide: () => void,
+    open: (feedback_type?: 'general' | 'bug' | 'feature_request', destination?: 'screenshot' | 'video' | 'form') => void,
+    close: () => void,
+    destroy: () => void,
+    /**
+     * Reset custom data after JavaScript SDK is loaded.
+     *
+     * @param custom_data - A non-nested object containg custom metadata
+     */
+    setData: (custom_data: Object) => void,
+}
 
-  widget_settings: UserbackWidgetSettings,
-  request_url: string,
-  /* Your Userback.io token */
-  access_token: string,
+export interface UserbackWidget extends UserbackOptions, UserbackFunctions {
+    /* Your Userback.io token */
+    access_token: string,
+    request_url: string,
 }
 
 declare global {
