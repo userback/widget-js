@@ -15,6 +15,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/jsx-indent": ["warn", 4],
     "indent": ["warn", 4],
     "react/jsx-filename-extension": ["off"],
     "max-len": ["warn", 140],
@@ -24,5 +25,5 @@
     "camelcase": ["off"]
   },
   "root": true,
-  "ignorePatterns": ["**/dist/*", "examples/*"]
+  "ignorePatterns": ["**/dist/*"]
 }
