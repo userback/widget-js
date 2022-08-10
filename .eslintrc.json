@@ -5,7 +5,8 @@
   },
   "extends": [
     "eslint:recommended",
-    "airbnb-base"
+    "airbnb",
+    "airbnb/hooks"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
@@ -14,7 +15,13 @@
     "sourceType": "module"
   },
   "rules": {
-    "indent": ["warn", 4]
+    "indent": ["warn", 4],
+    "react/jsx-filename-extension": ["off"],
+    "max-len": ["warn", 140],
+    "no-use-before-define": ["warn"],
+    "no-unused-vars": ["warn"],
+    "consistent-return": ["warn"],
+    "camelcase": ["off"]
   },
   "root": true,
   "ignorePatterns": ["**/dist/*", "examples/*"]

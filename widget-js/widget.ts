@@ -1,33 +1,4 @@
 // Typescript Definitions
-export interface UserbackOptions {
-    /* Used to auto-fill the email field in the feedback form. */
-    email?: string,
-    /* Used to auto-fill the name field in the feedback form. */
-    name?: string,
-    /* Set categories in a comma-seperated string */
-    categories?: string,
-    /* Set the default priority */
-    priority?: string,
-    custom_data?: any,
-    /* Is the environment publically accessible (html/css/js assets) */
-    is_live?: boolean,
-    /* Options for the widget */
-    widget_settings?: UserbackWidgetSettings,
-    /* Use browser built-in Screen Capture API to capture screenshots */
-    native_screenshot?: boolean,
-    domain?: string,
-
-    on_load?: Function,
-    /* The on_open event is triggered when the Feedback button is clicked */
-    on_open?: Function,
-    /* The on_close event is triggered when the Close button is clicked */
-    on_close?: Function,
-    /* The before_send event is triggered when the Send button is clicked */
-    before_send?: Function,
-    /* The after_send event is triggered after feedback has been submitted to Userback */
-    after_send?: (data: UserbackAfterSendData) => any,
-}
-
 interface UserbackAfterSendData {
   load_type: string,
   domain: string,
@@ -70,7 +41,8 @@ interface UserbackFormSettings {
 
 export interface UserbackWidgetSettings {
   widgetSettings?: {
-    language?: 'en' | 'da' | 'de' | 'es' | 'et' | 'fi' | 'fr' | 'hu' | 'it' | 'jp' | 'ko' | 'lt' | 'pl' | 'pt' | 'pt-br' | 'nl' | 'no' | 'ro' | 'ru' | 'sk' | 'sv' | 'zh-CN' | 'zh-TW',
+    language?: 'en' | 'da' | 'de' | 'es' | 'et' | 'fi' | 'fr' | 'hu' | 'it' | 'jp' | 'ko' | 'lt' |
+          'pl' | 'pt' | 'pt-br' | 'nl' | 'no' | 'ro' | 'ru' | 'sk' | 'sv' | 'zh-CN' | 'zh-TW',
     style?: 'text' | 'circle',
     position?: string,
     trigger_type?: 'page_load' | 'api' | 'url_match',
@@ -85,6 +57,35 @@ export interface UserbackWidgetSettings {
       feature_request?: UserbackFormSettings,
     }
   },
+}
+
+export interface UserbackOptions {
+    /* Used to auto-fill the email field in the feedback form. */
+    email?: string,
+    /* Used to auto-fill the name field in the feedback form. */
+    name?: string,
+    /* Set categories in a comma-seperated string */
+    categories?: string,
+    /* Set the default priority */
+    priority?: string,
+    custom_data?: any,
+    /* Is the environment publically accessible (html/css/js assets) */
+    is_live?: boolean,
+    /* Options for the widget */
+    widget_settings?: UserbackWidgetSettings,
+    /* Use browser built-in Screen Capture API to capture screenshots */
+    native_screenshot?: boolean,
+    domain?: string,
+
+    on_load?: Function,
+    /* The on_open event is triggered when the Feedback button is clicked */
+    on_open?: Function,
+    /* The on_close event is triggered when the Close button is clicked */
+    on_close?: Function,
+    /* The before_send event is triggered when the Send button is clicked */
+    before_send?: Function,
+    /* The after_send event is triggered after feedback has been submitted to Userback */
+    after_send?: (data: UserbackAfterSendData) => any, // eslint-disable-line
 }
 
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
@@ -118,10 +119,10 @@ declare global {
 
 // An internal reference of the `window.Userback` object which will
 // be deleted from the `window` scope when using this module.
-let _userback: UserbackWidget | undefined = undefined;
+let USERBACK: UserbackWidget | undefined;
 
 // Internal value for ensuring a module cannot load twice
-let _loading = false
+let LOADING = false;
 /*
  * UserbackWidgetLoader
  *
@@ -130,11 +131,11 @@ let _loading = false
 export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
         // Validation
-        if ( _loading === true ){ return reject('Userback widget already loading!') }
-        if (typeof _userback !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
+        if (LOADING === true) { return reject('Userback widget already loading!'); }
+        if (typeof USERBACK !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
         if (!token) { return reject('A valid token must be provided from https://userback.io'); }
         if (typeof options === 'undefined') { options = {}; }
-        _loading = true
+        LOADING = true;
 
         // Defaults
         const ubDomain = options?.domain || 'userback.io';
@@ -144,16 +145,16 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         // When the script tag is finished loading, we will move the `window.Userback` reference to
         // this local module and then provide it back as a promise resolution.
         function onload() {
-            if (typeof window.Userback === 'undefined'){ return reject('`window.Userback` was somehow deleted while loading!') }
+            if (typeof window.Userback === 'undefined') { return reject('`window.Userback` was somehow deleted while loading!'); }
             window.Userback.init(token, {
                 ...options,
                 on_load: () => {
-                    _loading = false
-                    _userback = window.Userback as UserbackWidget
+                    LOADING = false;
+                    USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
                     if (typeof options?.on_load === 'function') { options.on_load(); }
-                    return resolve(_userback);
+                    return resolve(USERBACK);
                 },
             });
         }
@@ -172,6 +173,6 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
 /**
  * Returns the UserbackWidget if it has been initialised
  * */
-export function getUserback(){
-    return _userback;
+export function getUserback() {
+    return USERBACK;
 }
