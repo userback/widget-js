@@ -16,7 +16,7 @@
     "start:widget": "yarn workspace example-js start",
     "start:react": "yarn workspace example-react start",
     "start:vue": "yarn workspace example-vue start",
-    "test": "yarn workspace example-js build && yarn workspace example-react build",
+    "test": "yarn workspaces foreach --include \"*example*\" run build",
     "publish": "yarn workspaces foreach --no-private run publish",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx"
   },

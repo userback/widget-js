@@ -8,11 +8,7 @@ interface UserbackReactProps {
   widgetSettings?: UserbackWidgetSettings,
 }
 
-interface UserbackContextValues {
-
-}
-
-const UserbackContext = createContext<UserbackContextValues | undefined>(
+const UserbackContext = createContext<UserbackFunctions | undefined>(
   undefined,
 );
 
