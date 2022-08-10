@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
+import React, { createContext, useCallback, useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import UserbackInit, { UserbackDestinationType, UserbackFeedbackType, UserbackFunctions, UserbackOptions, UserbackWidget, UserbackWidgetSettings } from '@userback/widget';
 
@@ -18,51 +18,48 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     widgetSettings: widget_settings,
     children,
 }) => {
-    const [isLoaded, setLoaded] = useState(false);
-    const Userback: React.MutableRefObject<UserbackWidget | undefined> = useRef(undefined)
-
+    const isLoaded = useRef(false);
+    const [Userback, setUserback] = useState(undefined as UserbackWidget | undefined)
 
     const init = useCallback(async (token: string, options: UserbackOptions) => {
-        return await UserbackInit(token, options).then((ub) => {
-            setLoaded(true)
-            Userback.current = ub
-        })
-    }, []) as (token: string, options: UserbackOptions) => Promise<UserbackWidget>
+        isLoaded.current = true
+        const ub = await UserbackInit(token, options)
+        setUserback(ub)
+        return ub
+    }, [setUserback])
 
-    if(!isLoaded){
-        //init(token, {...options, widget_settings})
-        UserbackInit(token, {...options, widget_settings}).then((ub) => {
-            Userback.current = ub
-        })
-        setLoaded(true)
-    }
+    useEffect(() => {
+        if(!isLoaded.current){
+            init(token, {...options, widget_settings})
+        }
+    }, [])
 
     // Api hooks
     const hide = useCallback(() => {
-        Userback.current?.hide()
-    }, [])
+        Userback?.hide()
+    }, [Userback])
 
     const show = useCallback(() => {
-        Userback.current?.show()
-    }, [])
+        Userback?.show()
+    }, [Userback])
 
     const open = useCallback((feedback?: UserbackFeedbackType | undefined, destination?: UserbackDestinationType | undefined) => {
-        Userback.current?.open(feedback, destination)
-    }, [])
+        Userback?.open(feedback, destination)
+    }, [Userback])
 
     const close = useCallback(() => {
-        Userback.current?.close()
-    }, [])
+        Userback?.close()
+    }, [Userback])
 
     const destroy = useCallback(() => {
-        Userback.current?.destroy()
-        Userback.current = undefined
-        setLoaded(false)
-    }, [])
+        Userback?.destroy()
+        setUserback(undefined)
+        isLoaded.current = false
+    }, [Userback])
 
     const setData = useCallback((data: any) => {
-        Userback.current?.setData(data)
-    }, [])
+        Userback?.setData(data)
+    }, [Userback])
 
     // Create the provider values, usable upstream by users
     const providerValue = React.useMemo<UserbackFunctions>(() => {
