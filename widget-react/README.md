@@ -22,17 +22,30 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 With a valid token provided, the Userback Widget will automatically load and be ready to use!
 
+### Options
+Along with `token`, you can also provide an `options` prop:
+
+``` jsx
+const {email, name} = getUserDetails()
+return (
+  <UserbackProvider token={USERBACK_TOKEN} options={{ email, name, priority: 'high' }} >
+    ...
+  </UserbackProvider>)
+```
+
+
 ### Hooks
-You can access userback hooks in child components of the `UserbackProvider` with `useUserback()`:
+You can access Userback hooks in child components of the `<UserbackProvider>` with `useUserback()`:
 
 ``` jsx
 import { useUserback } from '@userback/react'
 
 function App() {
-  const { open } = useUserback()
+  const { open, hide } = useUserback()
   return (
     <div id="app">
       <button type="button" onClick={() => open('general', 'screenshot')}>Take a screenshot</button>
+      <button type="button" onClick={() => hide()}>Hide me :(</button>
     </div>
   )
 }
