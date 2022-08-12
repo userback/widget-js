@@ -1,12 +1,23 @@
 import typescript from '@rollup/plugin-typescript';
 
+function baseCfg(c){
+    return Object.assign(c, {
+        exports: 'default',
+    });
+}
+
 export default {
     plugins: [typescript()],
     input: 'vue.tsx',
     external: ['vue', '@userback/widget'],
     output: [
-        { file: './dist/vue.js', format: 'cjs', exports: 'default' },
-        { file: './dist/vue.mjs', format: 'esm', exports: 'default' },
-        { file: './dist/vue.umd.js', format: 'umd', name: 'Userback', exports: 'default' },
+        baseCfg({ file: './dist/vue.js', format: 'cjs' }),
+        baseCfg({ file: './dist/vue.mjs', format: 'esm' }),
+        baseCfg({
+            file: './dist/vue.umd.js',
+            format: 'umd',
+            name: 'UserbackVue',
+            globals: { '@userback/widget': 'Userback' },
+        }),
     ],
 };
