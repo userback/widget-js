@@ -82,3 +82,20 @@ export const useUserbackContext = () => {
 };
 
 export const useUserback = () => useUserbackContext();
+
+export interface WithUserbackProps {
+    userback: UserbackFunctions
+}
+
+/**
+ * A higher Ordered Component for using hooks within a class based component
+ * */
+export function withUserback<T extends WithUserbackProps = WithUserbackProps>(
+    Component: React.ComponentType<T>,
+) {
+    return function UserbackWrapper(props: Omit<T, keyof WithUserbackProps>) {
+        const userback = useUserback();
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        return (<Component {...props as T} userback={userback} />);
+    };
+}
