@@ -67,8 +67,8 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
 
     // Create the provider values, usable upstream by users
     const providerValue = React.useMemo<UserbackFunctions>(() => ({
-        init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded
-    }), [init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded]);
+        init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded, setName
+    }), [init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded, setName]);
 
     return (<UserbackContext.Provider value={providerValue}>{children}</UserbackContext.Provider>);
 };
