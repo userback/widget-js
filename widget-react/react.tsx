@@ -22,55 +22,73 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     widgetSettings: widget_settings,
     children,
 }) => {
-    const isLoaded = useRef(false);
+    const ubLoaded = useRef(false);
     const [Userback, setUserback] = useState(undefined as UserbackWidget | undefined);
 
     const init = useCallback(async (_token: string, _options: UserbackOptions) => {
-        isLoaded.current = true;
+        ubLoaded.current = true;
         const ub = await UserbackInit(_token, _options);
         setUserback(ub);
         return ub;
     }, [setUserback]);
 
     useEffect(() => {
-        if (!isLoaded.current) {
+        if (!ubLoaded.current) {
             init(token, { ...options, widget_settings });
         }
     }, []);
 
     // Api hooks
-    const hide = useCallback(() => {
-        Userback?.hide();
-    }, [Userback]);
-
-    const show = useCallback(() => {
-        Userback?.show();
-    }, [Userback]);
+    const hide = useCallback(() => { Userback?.hide(); }, [Userback]);
+    const show = useCallback(() => { Userback?.show(); }, [Userback]);
+    const close = useCallback(() => { Userback?.close(); }, [Userback]);
+    const openPortal = useCallback(() => { Userback?.openPortal(); }, [Userback]);
+    const isLoaded = useCallback(() => Userback?.isLoaded() || false, [Userback]);
 
     const open = useCallback((feedback?: UserbackFeedbackType | undefined, destination?: UserbackDestinationType | undefined) => {
         Userback?.open(feedback, destination);
     }, [Userback]);
 
-    const close = useCallback(() => {
-        Userback?.close();
-    }, [Userback]);
-
     const destroy = useCallback(() => {
         Userback?.destroy();
         setUserback(undefined);
-        isLoaded.current = false;
+        ubLoaded.current = false;
     }, [Userback]);
 
     const setData = useCallback((data: any) => {
         Userback?.setData(data);
     }, [Userback]);
 
+    const setEmail = useCallback((email: string) => {
+        Userback?.setEmail(email);
+    }, [Userback]);
+
+    const setCategories = useCallback((categories: string) => {
+        Userback?.setCategories(categories);
+    }, [Userback]);
+
+    const setPriority = useCallback((priority: string) => {
+        Userback?.setPriority(priority);
+    }, [Userback]);
+
+    const addHeader = useCallback((key: string, value: string) => {
+        Userback?.addHeader(key, value);
+    }, [Userback]);
+
+    const identify = useCallback((user_id: string, user_info: Object) =>
+        Userback?.identify(user_id, user_info), [Userback]);
+
     // Create the provider values, usable upstream by users
     const providerValue = React.useMemo<UserbackFunctions>(() => ({
-        init, show, hide, open, close, destroy, setData,
-    }), [init, show, hide, open, close, destroy, setData]);
+        init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded
+    }), [init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded]);
 
     return (<UserbackContext.Provider value={providerValue}>{children}</UserbackContext.Provider>);
+};
+
+UserbackProvider.defaultProps = {
+    options: {},
+    widgetSettings: undefined,
 };
 
 export const useUserbackContext = () => {
