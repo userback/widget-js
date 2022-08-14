@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { test, expect } from '@playwright/test';
 
 test('Userback JS Widget loads and can be opened', async ({ page }) => {

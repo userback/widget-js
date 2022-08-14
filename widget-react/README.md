@@ -53,5 +53,25 @@ function App() {
 export default App
 ```
 
+### Class based components
+If you are using class based components and need an alternative to hooks, you can use the `withUserback` Higher Order Component:
+
+``` jsx
+import { withUserback } from '@userback/react'
+
+class App extends React.Component {
+  render() {
+    return (
+      <div id="app">
+        <button type="button" onClick={() => this.props.userback.open('general', 'screenshot')}>Take a screenshot</button>
+        <button type="button" onClick={() => this.props.userback.hide()}>Hide me :(</button>
+      </div>
+    )
+  }
+}
+
+export default withUserback(App)
+```
+
 
 For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)

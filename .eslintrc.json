@@ -28,5 +28,9 @@
     "import/extensions": ["off"]
   },
   "root": true,
-  "ignorePatterns": ["**/dist/*"]
+  "ignorePatterns": [
+    "**/dist/*",
+    "**/rollup.config.js",
+    "**/vite-env.d.ts"
+  ]
 }
