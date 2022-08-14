@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import UserbackWidget, { UserbackOptions } from '@userback/widget';
 
 // Environment variables from `../../.env`
