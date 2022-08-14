@@ -7,7 +7,7 @@
   "umd": "dist/react.umd.js",
   "types": "dist/react.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsc --noEmit && rollup -c",
     "watch": "tsc -w"
   },
   "dependencies": {
