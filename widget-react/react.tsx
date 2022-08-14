@@ -16,6 +16,12 @@ const UserbackContext = createContext<UserbackFunctions | undefined>(
     undefined,
 );
 
+/**
+ * UserbackProider
+ *
+ * @example `<UserbackProvider token={UB_TOKEN} ><MyRouter /></UserbackProvider>`
+ * @returns React.Component
+ */
 export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactProps>> = ({
     token,
     options,
@@ -32,11 +38,12 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         return ub;
     }, [setUserback]);
 
+    // onMount
     useEffect(() => {
         if (!ubLoaded.current) {
-            init(token, { ...options, widget_settings });
+            init(token, { widget_settings, ...options });
         }
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Api hooks
     const hide = useCallback(() => { Userback?.hide(); }, [Userback]);
@@ -62,13 +69,42 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         ubLoaded.current = false;
     }, [Userback]);
 
-    const identify = useCallback((user_id: string, user_info: Object) =>
-        Userback?.identify(user_id, user_info), [Userback]);
+    const identify = useCallback((user_id: string, user_info: Object) => Userback?.identify(user_id, user_info), [Userback]);
 
     // Create the provider values, usable upstream by users
     const providerValue = React.useMemo<UserbackFunctions>(() => ({
-        init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded, setName
-    }), [init, show, hide, open, close, destroy, setData, setEmail, setCategories, setPriority, addHeader, identify, openPortal, isLoaded, setName]);
+        init,
+        show,
+        hide,
+        open,
+        close,
+        destroy,
+        setData,
+        setEmail,
+        setCategories,
+        setPriority,
+        addHeader,
+        identify,
+        openPortal,
+        isLoaded,
+        setName,
+    }), [
+        init,
+        show,
+        hide,
+        open,
+        close,
+        destroy,
+        setData,
+        setEmail,
+        setCategories,
+        setPriority,
+        addHeader,
+        identify,
+        openPortal,
+        isLoaded,
+        setName,
+    ]);
 
     return (<UserbackContext.Provider value={providerValue}>{children}</UserbackContext.Provider>);
 };
@@ -86,6 +122,7 @@ export const useUserbackContext = () => {
     return ctx;
 };
 
+/* Provides the Userback api as React hooks */
 export const useUserback = () => useUserbackContext();
 
 export interface WithUserbackProps {
