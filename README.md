@@ -1,11 +1,13 @@
 <p align="center"><img src="https://raw.githubusercontent.com/userback/widget-js/master/logo.svg" alt="Logo" height="32px" /></p>
+
 # Userback Widgets
-A Monolithic repository for [Userback.io](https://www.userback.io) npm packages :package:
+:package: A Monolithic repository for [Userback.io](https://www.userback.io) npm packages
 
 <p>
 <img alt="version" src="https://img.shields.io/github/package-json/v/userback/widget-js" />
-<img alt="ci status" src="https://github.com/userback/widget-js/workflows/main/badge.svg?branch=master">
+<img alt="ci status" src="https://img.shields.io/github/workflow/status/userback/widget-js/Userback%20Widgets">
 <img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
+<img alt="license" src="https://img.shields.io/github/license/userback/widget-js" />
 </p>
 
 ## Packages
