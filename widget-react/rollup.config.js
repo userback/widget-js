@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 
-function baseCfg(c){
+function baseCfg(c) {
     return Object.assign(c, {
         exports: 'named',
     });
