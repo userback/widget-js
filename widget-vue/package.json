@@ -25,6 +25,7 @@
     "vue"
   ],
   "homepage": "https://github.com/userback/widget-js/widget-vue#readme",
+  "license": "MIT",
   "packageManager": "yarn@3.2.2",
   "peerDependencies": {
     "vue": ">=3"
