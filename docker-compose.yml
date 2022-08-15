@@ -1,5 +1,8 @@
 version: "3.8"
 
+# Example Base
+#
+# Every example's common configuration they all inherit from
 x-base: &base
   image: node:18
   networks:
@@ -12,6 +15,10 @@ x-base: &base
     - VITE_UB_DOMAIN
 
 services:
+  # Example Services
+  #
+  # Each example will be listed here and run over port 3000 on the `core` networks
+  # to allow playwright docker to access all examples.
   example-widget:
     <<: *base
     command: yarn workspace example-js run serve
@@ -22,6 +29,9 @@ services:
     <<: *base
     command: yarn workspace example-react run serve
 
+  # Playwright task
+  #
+  # Uses profiles to only enable e2e testing when using `docker compose run`
   playwright:
     build:
       context: .

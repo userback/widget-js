@@ -1,7 +1,7 @@
 {
   "name": "root",
   "description": "Root workspace for userback.io npm packages",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -10,7 +10,7 @@
     "e2e"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --no-private -p run build",
+    "build": "yarn workspaces foreach --no-private run build",
     "build:widget": "yarn workspace @userback/widget build",
     "build:react": "yarn workspace @userback/react build",
     "build:vue": "yarn workspace @userback/vue build",

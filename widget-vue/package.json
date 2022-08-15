@@ -7,7 +7,7 @@
   "umd": "dist/vue.umd.js",
   "types": "dist/vue.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsc --noEmit && rollup -c",
     "watch": "tsc -w"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "vue"
   ],
   "homepage": "https://github.com/userback/widget-js/widget-vue#readme",
+  "license": "MIT",
   "packageManager": "yarn@3.2.2",
   "peerDependencies": {
     "vue": ">=3"

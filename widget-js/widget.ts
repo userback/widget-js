@@ -97,6 +97,15 @@ export interface UserbackFunctions {
     open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
     close: () => void,
     destroy: () => void,
+    isLoaded: () => boolean,
+    /* Open the feedback portal */
+    openPortal: () => void,
+    setName: (name: string) => void,
+    setEmail: (email: string) => void,
+    setCategories: (categories: string) => void,
+    setPriority: (priority: string) => void,
+    identify: (user_id: string, user_info: Object) => void,
+    addHeader: (key: string, value: string) => void
     /**
      * Reset custom data after JavaScript SDK is loaded.
      *
@@ -134,11 +143,11 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         if (LOADING === true) { return reject('Userback widget already loading!'); }
         if (typeof USERBACK !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
         if (!token) { return reject('A valid token must be provided from https://userback.io'); }
-        if (typeof options === 'undefined') { options = {}; }
+        const opts = options === 'undefined' ? {} : options;
         LOADING = true;
 
         // Defaults
-        const ubDomain = options?.domain || 'userback.io';
+        const ubDomain = opts?.domain || 'userback.io';
         // @NOTE: have to init using the window.Userback object method in order to set request_url
         window.Userback = { request_url: `https://api.${ubDomain}` } as any;
 
@@ -147,13 +156,13 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         function onload() {
             if (typeof window.Userback === 'undefined') { return reject('`window.Userback` was somehow deleted while loading!'); }
             window.Userback.init(token, {
-                ...options,
+                ...opts,
                 on_load: () => {
                     LOADING = false;
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
-                    if (typeof options?.on_load === 'function') { options.on_load(); }
+                    if (typeof opts?.on_load === 'function') { opts.on_load(); }
                     return resolve(USERBACK);
                 },
             });

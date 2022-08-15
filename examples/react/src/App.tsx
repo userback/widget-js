@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useUserback } from '@userback/react';
-import reactLogo from './assets/react.svg';
+import reactLogo from './react.svg';
 
 function App() {
     const [count, setCount] = useState(0);
