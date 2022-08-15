@@ -30,5 +30,6 @@
     "react"
   ],
   "homepage": "https://github.com/userback/widget-js/widget-react#readme",
+  "license": "MIT",
   "packageManager": "yarn@3.2.2"
 }
