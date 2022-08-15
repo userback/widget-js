@@ -24,7 +24,14 @@
     "userback",
     "vue"
   ],
-  "homepage": "https://github.com/userback/widget-js/widget-vue#readme",
+  "homepage": "https://github.com/userback/widget-js/tree/develop/widget-vue#readme",
+  "bugs": {
+    "url": "https://github.com/userback/widget-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userback/widget-js.git"
+  },
   "license": "MIT",
   "packageManager": "yarn@3.2.2",
   "peerDependencies": {
