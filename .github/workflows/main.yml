@@ -15,10 +15,23 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16.x
-        cache: 'yarn'
+        cache: yarn
     - run: yarn --immutable
     - run: yarn build
     - run: yarn lint
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: yarn
+    - run: yarn --immutable
+    - run: yarn build
+    - run: yarn docs
+    - run: git diff --exit-code
 
   end2end:
     timeout-minutes: 15
@@ -30,6 +43,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16.x
+        cache: yarn
     - run: yarn --immutable
     - run: yarn build
     - run: docker compose up -d
