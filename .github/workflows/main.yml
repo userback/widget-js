@@ -30,6 +30,7 @@ jobs:
     - run: yarn --immutable
     - run: yarn build
     - run: yarn docs
+    - run: git diff --exit-code
 
   end2end:
     timeout-minutes: 15
