@@ -21,7 +21,7 @@
     "test:e2e": "yarn workspace e2e run test",
     "publish": "yarn workspaces foreach --no-private run publish",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx",
-    "docs": "yarn typedoc --entryPointStrategy packages widget*"
+    "docs": "yarn typedoc --entryPointStrategy packages widget* --gitRevision master"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.0",
