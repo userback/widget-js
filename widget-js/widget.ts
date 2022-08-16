@@ -1,4 +1,5 @@
 // Typescript Definitions
+/* eslint-disable no-unused-vars */
 interface UserbackAfterSendData {
   load_type: string,
   domain: string,
@@ -132,6 +133,9 @@ let USERBACK: UserbackWidget | undefined;
 
 // Internal value for ensuring a module cannot load twice
 let LOADING = false;
+
+/* eslint-enable no-unused-vars */
+
 /*
  * UserbackWidgetLoader
  *
@@ -140,9 +144,10 @@ let LOADING = false;
 export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
         // Validation
-        if (LOADING === true) { return reject('Userback widget already loading!'); }
-        if (typeof USERBACK !== 'undefined') { return reject('Userback widget loaded twice, canceling initialisation'); }
-        if (!token) { return reject('A valid token must be provided from https://userback.io'); }
+        const error = (e: string | Event) => reject(new Error(e.toString()));
+        if (LOADING === true) { return error('Userback widget already loading!'); }
+        if (typeof USERBACK !== 'undefined') { return error('Userback widget loaded twice, canceling initialisation'); }
+        if (!token) { return error('A valid token must be provided from https://userback.io'); }
         const opts = options === 'undefined' ? {} : options;
         LOADING = true;
 
@@ -154,7 +159,7 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         // When the script tag is finished loading, we will move the `window.Userback` reference to
         // this local module and then provide it back as a promise resolution.
         function onload() {
-            if (typeof window.Userback === 'undefined') { return reject('`window.Userback` was somehow deleted while loading!'); }
+            if (typeof window.Userback === 'undefined') { return error('`window.Userback` was somehow deleted while loading!'); }
             window.Userback.init(token, {
                 ...opts,
                 on_load: () => {
@@ -166,6 +171,7 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
                     return resolve(USERBACK);
                 },
             });
+            return true;
         }
 
         // Create and inject the <script/> tag to start loading Userback
@@ -173,8 +179,9 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         script.src = `https://static.${ubDomain}/widget/v1.js`;
         script.async = true;
         script.onload = onload;
-        script.onerror = (error) => reject(error);
+        script.onerror = (err) => error(err);
         document.body.appendChild(script);
+        return true;
     });
 }
 

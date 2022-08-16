@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {
     createContext, useCallback, useContext, useRef, useState, useEffect,
 } from 'react';
@@ -5,6 +6,7 @@ import ReactDOM from 'react-dom';
 import UserbackInit, {
     UserbackDestinationType, UserbackFeedbackType, UserbackFunctions, UserbackOptions, UserbackWidget, UserbackWidgetSettings,
 } from '@userback/widget';
+/* eslint-enable */
 
 interface UserbackReactProps {
   token: string,
