@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { UserbackProvider } from '@userback/react';
-import App from './App';
+import App from './App'; // eslint-disable-line import/no-unresolved
 import './index.css';
 
 // Get token from `../../.env`
