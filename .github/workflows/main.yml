@@ -19,6 +19,17 @@ jobs:
     - run: yarn --immutable
     - run: yarn build
 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'yarn'
+    - run: yarn --immutable
+    - run: yarn lint
+
   end2end:
     timeout-minutes: 15
     runs-on: ubuntu-latest
