@@ -28,5 +28,9 @@
     "type": "git",
     "url": "git+https://github.com/userback/widget-js.git"
   },
+  "typedoc": {
+    "entryPoint": "widget.ts",
+    "readmeFile": "README.md"
+  },
   "packageManager": "yarn@3.2.2"
 }

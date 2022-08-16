@@ -20,6 +20,9 @@
     "typescript": "^4.7.4",
     "vue": ">=3"
   },
+  "peerDependencies": {
+    "vue": ">=3"
+  },
   "keywords": [
     "userback",
     "vue"
@@ -33,8 +36,9 @@
     "url": "git+https://github.com/userback/widget-js.git"
   },
   "license": "MIT",
-  "packageManager": "yarn@3.2.2",
-  "peerDependencies": {
-    "vue": ">=3"
-  }
+  "typedoc": {
+    "entryPoint": "vue.tsx",
+    "readmeFile": "README.md"
+  },
+  "packageManager": "yarn@3.2.2"
 }

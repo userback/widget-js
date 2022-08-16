@@ -38,5 +38,9 @@
     "url": "git+https://github.com/userback/widget-js.git"
   },
   "license": "MIT",
+  "typedoc": {
+    "entryPoint": "react.tsx",
+    "readmeFile": "README.md"
+  },
   "packageManager": "yarn@3.2.2"
 }
