@@ -1,7 +1,7 @@
 {
   "name": "@userback/widget",
   "description": "Userback.io widget for Javascript and Typescript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/widget.js",
   "module": "dist/widget.mjs",
   "umd": "dist/widget.umd.js",
