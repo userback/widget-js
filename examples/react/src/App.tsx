@@ -8,7 +8,9 @@ const domain = import.meta.env?.VITE_UB_DOMAIN;
 function App() {
     const [count, setCount] = useState(0);
     // Get Userback hooks
-    const { show, hide, open, destroy, init } = useUserback();
+    const {
+        show, hide, open, destroy, init,
+    } = useUserback();
 
     return (
         <div className="App">
