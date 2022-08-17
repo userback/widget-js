@@ -1,6 +1,6 @@
 // Typescript Definitions
 /* eslint-disable no-unused-vars */
-interface UserbackAfterSendData {
+export interface UserbackAfterSendData {
   load_type: string,
   domain: string,
   page: string,
@@ -19,7 +19,7 @@ interface UserbackAfterSendData {
   rating: string,
 }
 
-interface UserbackFormSettings {
+export interface UserbackFormSettings {
   rating_type?: 'star' | 'emoji' | 'heart' | 'thumb',
   rating_help_message?: string,
   name_field? : boolean,

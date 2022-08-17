@@ -8,7 +8,7 @@ import UserbackInit, {
 } from '@userback/widget';
 /* eslint-enable */
 
-interface UserbackReactProps {
+export interface UserbackReactProps {
   token: string,
   options?: UserbackOptions,
   widgetSettings?: UserbackWidgetSettings,
