@@ -167,7 +167,15 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
+
                     if (typeof opts?.on_load === 'function') { opts.on_load(); }
+
+                    // Monkeypatch Userback.destory to ensure we keep our USERBACK reference in sync
+                    const origDestory = USERBACK.destroy;
+                    USERBACK.destroy = function proxyDestory() {
+                        origDestory();
+                        USERBACK = undefined;
+                    };
                     return resolve(USERBACK);
                 },
             });

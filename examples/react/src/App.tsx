@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useUserback } from '@userback/react';
 import reactLogo from './react.svg';
 
+const token = import.meta.env?.VITE_UB_TOKEN;
+const domain = import.meta.env?.VITE_UB_DOMAIN;
+
 function App() {
     const [count, setCount] = useState(0);
     // Get Userback hooks
-    const { show, hide, open } = useUserback();
+    const { show, hide, open, destroy, init } = useUserback();
 
     return (
         <div className="App">
@@ -24,8 +27,11 @@ function App() {
                 <button type="button" onClick={() => open('bug')}>Open Bugs</button>
                 <button type="button" onClick={() => open('general', 'screenshot')}>Screenshot me!</button>
                 <hr />
-                <button type="button" onClick={() => hide()}>Hide</button>
-                <button type="button" onClick={() => show()}>Show</button>
+                <button type="button" onClick={hide}>Hide</button>
+                <button type="button" onClick={show}>Show</button>
+                <hr />
+                <button type="button" onClick={() => init(token, { domain })}>Init</button>
+                <button type="button" onClick={destroy}>Destory</button>
             </div>
         </div>
     );
