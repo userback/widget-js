@@ -33,7 +33,7 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     const ubLoaded = useRef(false);
     const [Userback, setUserback] = useState(undefined as UserbackWidget | undefined);
 
-    const init = useCallback(async (_token: string, _options: UserbackOptions) => {
+    const init = useCallback(async (_token: string, _options?: UserbackOptions) => {
         ubLoaded.current = true;
         const ub = await UserbackInit(_token, _options);
         setUserback(ub);

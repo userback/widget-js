@@ -92,7 +92,7 @@ export interface UserbackOptions {
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
 export type UserbackDestinationType = 'screenshot' | 'video' | 'form'
 export interface UserbackFunctions {
-    init: (token: string, options: UserbackOptions) => Promise<UserbackWidget>,
+    init: (token: string, options?: UserbackOptions) => Promise<UserbackWidget>,
     show: () => void,
     hide: () => void,
     open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
