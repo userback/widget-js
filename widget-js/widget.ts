@@ -95,7 +95,7 @@ export interface UserbackOptions {
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
 export type UserbackDestinationType = 'screenshot' | 'video' | 'form'
 export interface UserbackFunctions {
-    init: (token: string, options?: UserbackOptions) => Promise<UserbackWidget>,
+    init: (token?: string, options?: UserbackOptions) => Promise<UserbackWidget>,
     show: () => void,
     hide: () => void,
     open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
@@ -144,13 +144,13 @@ let LOADING = false;
  *
  * Provides a type-safe interface for initializing and retrieving the Userback object
  */
-export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
+export default function UserbackWidgetLoader(token?: string, options?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
         // Validation
         const error = (e: string | Event) => reject(new Error(e.toString()));
         if (LOADING === true) { return error('Userback widget already loading!'); }
-        if (typeof USERBACK !== 'undefined') { return error('Userback widget loaded twice, canceling initialisation'); }
-        if (!token) { return error('A valid token must be provided from https://userback.io'); }
+        // if (typeof USERBACK !== 'undefined') { return error('Userback widget loaded twice, canceling initialisation'); }
+        if (!token) { console.debug('Token was not provided'); }
         const opts = options === 'undefined' ? {} : options;
         LOADING = true;
 
@@ -163,6 +163,13 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
         // this local module and then provide it back as a promise resolution.
         function onload() {
             if (typeof window.Userback === 'undefined') { return error('`window.Userback` was somehow deleted while loading!'); }
+
+            // Token not provided, we should not init yet
+            if (typeof token !== 'string') {
+                LOADING = false;
+                USERBACK = window.Userback as UserbackWidget;
+                return resolve(USERBACK);
+            }
             window.Userback.init(token, {
                 ...opts,
                 on_load: () => {

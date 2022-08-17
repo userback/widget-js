@@ -9,7 +9,7 @@ import UserbackInit, {
 /* eslint-enable */
 
 export interface UserbackReactProps {
-  token: string,
+  token?: string,
   options?: UserbackOptions,
   widgetSettings?: UserbackWidgetSettings,
 }
@@ -33,7 +33,7 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     const ubLoaded = useRef(false);
     const [Userback, setUserback] = useState(undefined as UserbackWidget | undefined);
 
-    const init = useCallback(async (_token: string, _options?: UserbackOptions) => {
+    const init = useCallback(async (_token?: string, _options?: UserbackOptions) => {
         ubLoaded.current = true;
         const ub = await UserbackInit(_token, _options);
         setUserback(ub);
@@ -45,6 +45,7 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         if (!ubLoaded.current) {
             init(token, { widget_settings, ...options });
         }
+        // @TODO: should we be tracking the token here?
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Api hooks
