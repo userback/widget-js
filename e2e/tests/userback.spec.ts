@@ -9,11 +9,9 @@ test('Userback JS Widget loads and can be opened', async ({ page }) => {
     page.on('console', (message) => { console.log(message); });
 
     await page.goto('http://example-widget:3000/');
-    await page.waitForSelector(FEEDBACK_BTN);
 
     // Open the userback widget
-    const widget = page.locator(FEEDBACK_BTN);
-    await widget.click();
+    await (await page.waitForSelector(FEEDBACK_BTN)).click();
 
     // Check for pop-up content
     await expect(page.locator('img.userback-controls-logo')).toHaveCount(1);
@@ -27,13 +25,13 @@ test('Userback React Widget loads and can be opened', async ({ page }) => {
 
     await page.goto('http://example-react:3000/');
 
-    // Authide is on
-    await page.waitForSelector(FEEDBACK_BTN, { state: 'hidden' });
-    await page.locator('text="Show"').click();
-    await page.waitForSelector(FEEDBACK_BTN);
+    // When Authide is on
+    // await page.waitForSelector(FEEDBACK_BTN, { state: 'hidden' });
+    // await page.locator('text="Show"').click();
+    // await page.waitForSelector(FEEDBACK_BTN);
 
     // Open the userback widget
-    await page.locator(FEEDBACK_BTN).click();
+    await (await page.waitForSelector(FEEDBACK_BTN)).click();
 
     // Check for pop-up content
     await expect(page.locator('img.userback-controls-logo')).toHaveCount(1);
@@ -48,8 +46,7 @@ test('Userback Vue Widget loads and can be opened', async ({ page }) => {
     await page.goto('http://example-vue:3000/');
 
     // Open the userback widget
-    await page.waitForSelector(FEEDBACK_BTN);
-    await page.locator(FEEDBACK_BTN).click();
+    await (await page.waitForSelector(FEEDBACK_BTN)).click();
 
     // Check for pop-up content
     await expect(page.locator('img.userback-controls-logo')).toHaveCount(1);
