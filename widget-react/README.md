@@ -16,7 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <UserbackProvider token={USERBACK_TOKEN}>
         <App />
       </UserbackProvider>
-    </React.StrictMode>)
+    </React.StrictMode>
+  )
 )
 ```
 
@@ -27,9 +28,10 @@ Along with `token`, you can also provide an `options` prop:
 
 ``` jsx
 const {email, name} = getUserDetails()
+const ubOptions = { email, name, priority: 'high', autohide: true }
 return (
-  <UserbackProvider token={USERBACK_TOKEN} options={{ email, name, priority: 'high' }} >
-    ...
+  <UserbackProvider token={USERBACK_TOKEN} options={ubOptions} >
+    <App />
   </UserbackProvider>)
 ```
 
@@ -41,11 +43,12 @@ You can access Userback hooks in child components of the `<UserbackProvider>` wi
 import { useUserback } from '@userback/react'
 
 function App() {
-  const { open, hide } = useUserback()
+  const { open, hide, show } = useUserback()
   return (
     <div id="app">
       <button type="button" onClick={() => open('general', 'screenshot')}>Take a screenshot</button>
-      <button type="button" onClick={() => hide()}>Hide me :(</button>
+      <button type="button" onClick={show}>Show Userback</button>
+      <button type="button" onClick={hide}>Hide me :(</button>
     </div>
   )
 }

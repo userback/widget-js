@@ -1,6 +1,6 @@
 // Typescript Definitions
 /* eslint-disable no-unused-vars */
-interface UserbackAfterSendData {
+export interface UserbackAfterSendData {
   load_type: string,
   domain: string,
   page: string,
@@ -19,7 +19,7 @@ interface UserbackAfterSendData {
   rating: string,
 }
 
-interface UserbackFormSettings {
+export interface UserbackFormSettings {
   rating_type?: 'star' | 'emoji' | 'heart' | 'thumb',
   rating_help_message?: string,
   name_field? : boolean,
@@ -41,9 +41,8 @@ interface UserbackFormSettings {
 }
 
 export interface UserbackWidgetSettings {
-  widgetSettings?: {
     language?: 'en' | 'da' | 'de' | 'es' | 'et' | 'fi' | 'fr' | 'hu' | 'it' | 'jp' | 'ko' | 'lt' |
-          'pl' | 'pt' | 'pt-br' | 'nl' | 'no' | 'ro' | 'ru' | 'sk' | 'sv' | 'zh-CN' | 'zh-TW',
+        'pl' | 'pt' | 'pt-br' | 'nl' | 'no' | 'ro' | 'ru' | 'sk' | 'sv' | 'zh-CN' | 'zh-TW',
     style?: 'text' | 'circle',
     position?: string,
     trigger_type?: 'page_load' | 'api' | 'url_match',
@@ -52,12 +51,11 @@ export interface UserbackWidgetSettings {
     help_title?: string,
     help_message?: string,
     logo?: string,
-    form_settings: {
-      general?: UserbackFormSettings,
-      bug?: UserbackFormSettings,
-      feature_request?: UserbackFormSettings,
+    form_settings?: {
+        general?: UserbackFormSettings,
+        bug?: UserbackFormSettings,
+        feature_request?: UserbackFormSettings,
     }
-  },
 }
 
 export interface UserbackOptions {
@@ -87,12 +85,15 @@ export interface UserbackOptions {
     before_send?: Function,
     /* The after_send event is triggered after feedback has been submitted to Userback */
     after_send?: (data: UserbackAfterSendData) => any, // eslint-disable-line
+
+    // Userback Module Specific functions (not in window.Userback.init().options)
+    autohide?: boolean,
 }
 
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
 export type UserbackDestinationType = 'screenshot' | 'video' | 'form'
 export interface UserbackFunctions {
-    init: (token: string, options: UserbackOptions) => Promise<UserbackWidget>,
+    init: (token: string, options?: UserbackOptions) => Promise<UserbackWidget>,
     show: () => void,
     hide: () => void,
     open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
@@ -141,20 +142,25 @@ let LOADING = false;
  *
  * Provides a type-safe interface for initializing and retrieving the Userback object
  */
-export default function UserbackWidgetLoader(token: string, options?: UserbackOptions): Promise<UserbackWidget> {
+export default function UserbackWidgetLoader(token: string, ubOptions?: UserbackOptions): Promise<UserbackWidget> {
     return new Promise((resolve, reject) => {
         // Validation
         const error = (e: string | Event) => reject(new Error(e.toString()));
         if (LOADING === true) { return error('Userback widget already loading!'); }
         if (typeof USERBACK !== 'undefined') { return error('Userback widget loaded twice, canceling initialisation'); }
         if (!token) { return error('A valid token must be provided from https://userback.io'); }
-        const opts = options === 'undefined' ? {} : options;
         LOADING = true;
 
         // Defaults
+        const opts = ubOptions === 'undefined' ? {} : ubOptions;
         const ubDomain = opts?.domain || 'userback.io';
-        // @NOTE: have to init using the window.Userback object method in order to set request_url
+
+        // Custom options
         window.Userback = { request_url: `https://api.${ubDomain}` } as any;
+        if (opts?.autohide) {
+            if (!opts.widget_settings) { opts.widget_settings = {}; }
+            opts.widget_settings.trigger_type = opts.autohide ? 'api' : 'page_load';
+        }
 
         // When the script tag is finished loading, we will move the `window.Userback` reference to
         // this local module and then provide it back as a promise resolution.
@@ -167,7 +173,15 @@ export default function UserbackWidgetLoader(token: string, options?: UserbackOp
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
+
                     if (typeof opts?.on_load === 'function') { opts.on_load(); }
+
+                    // Monkeypatch Userback.destory to ensure we keep our USERBACK reference in sync
+                    const origDestory = USERBACK.destroy;
+                    USERBACK.destroy = function proxyDestory() {
+                        origDestory();
+                        USERBACK = undefined;
+                    };
                     return resolve(USERBACK);
                 },
             });
