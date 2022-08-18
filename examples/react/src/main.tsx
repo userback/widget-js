@@ -10,7 +10,7 @@ const domain = import.meta.env?.VITE_UB_DOMAIN;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <UserbackProvider token={token} options={{ domain }}>
+        <UserbackProvider token={token} options={{ domain, autohide: true }}>
             <App />
         </UserbackProvider>
     </React.StrictMode>,

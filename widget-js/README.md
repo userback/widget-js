@@ -19,6 +19,15 @@ Userback(..).then(ub => {
 })
 ```
 
+Or delay showing it until later:
+``` javascript
+Userback(.., { autohide: true }).then(ub => {
+    document.querySelector('button.show-feedback').addEventListener('click', function(){
+        ub.show()
+    })
+})
+```
+
 Using the options object to enable native screenshots while binding screenshots to a HTML button:
 ``` javascript
 const userback = await Userback(..., { navtive_screenshot: true })
