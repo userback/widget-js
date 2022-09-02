@@ -19,7 +19,7 @@
     "start:vue": "yarn workspace example-vue start",
     "test": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
     "test:e2e": "yarn workspace e2e run test",
-    "publish": "yarn workspaces foreach --no-private npm publish",
+    "publish": "yarn workspaces foreach --no-private npm publish --access public",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx",
     "docs": "yarn typedoc --entryPointStrategy packages widget* --gitRevision master"
   },
