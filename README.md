@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/userback/widget-js/master/logo.svg" alt="Logo" height="32px" /></p>
+<p align="center"><img src="https://static.userback.io/image/logo_full.svg" alt="Logo" height="32px" /></p>
 
 # Userback Widgets
 :package: A Monolithic repository for [Userback.io](https://www.userback.io) npm packages
