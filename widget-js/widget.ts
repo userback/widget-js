@@ -147,7 +147,10 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         // Validation
         const error = (e: string | Event) => reject(new Error(e.toString()));
         if (LOADING === true) { return error('Userback widget already loading!'); }
-        if (typeof USERBACK !== 'undefined') { return error('Userback widget loaded twice, canceling initialisation'); }
+        if (typeof USERBACK !== 'undefined') {
+            console.warn('Userback widget loaded twice, canceling initialisation');
+            return resolve(USERBACK);
+        }
         if (!token) { return error('A valid token must be provided from https://userback.io'); }
         LOADING = true;
 
