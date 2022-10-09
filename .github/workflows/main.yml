@@ -46,11 +46,8 @@ jobs:
         cache: yarn
     - run: yarn --immutable
     - run: yarn build
-    - run: docker compose up -d
-    - run: docker compose build playwright
-    - run: docker compose logs
-    - run: docker compose run playwright
-# @TODO: Setup volumes for exporting artifacts
+    - run: yarn test:docker
+#    @TODO: Setup volumes for exporting artifacts
 #    - uses: actions/upload-artifact@v3
 #      if: always()
 #      with:
