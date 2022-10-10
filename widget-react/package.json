@@ -1,13 +1,14 @@
 {
   "name": "@userback/react",
   "description": "Userback.io widget for React",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/react.js",
   "module": "dist/react.mjs",
   "umd": "dist/react.umd.js",
   "types": "dist/react.d.ts",
   "scripts": {
-    "build": "tsc --noEmit && rollup -c",
+    "build": "rollup -c",
+    "test": "tsc --noEmit",
     "watch": "tsc -w"
   },
   "dependencies": {

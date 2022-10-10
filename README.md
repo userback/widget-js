@@ -19,7 +19,7 @@
 After cloning the repo, you can install all dependencies and build the widgets with:
 ```yarn && yarn build```
 
-After which you can run an example package using `yarn start:js` or `yarn start:react`.
+After which you can run an example package using `yarn start:widget` or `yarn start:react`.
 
 To provide your api token, create a `.env` file containing your Userback api key like the following: 
 ``` sh
@@ -30,11 +30,19 @@ VITE_UB_TOKEN=XXXxxxXXX
 Test coverage is mainly achieved through playwright and docker compose. In order to run the e2e test suite run the following:
 
 ``` sh
-yarn && yarn build
-docker compose up -d
-docker compose build playwright
-docker compose run playwright
+yarn test:docker
 ```
 
 ## Documentation
 Refer to each of the packages listed above for framework specific documentation and examples. For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
+
+## Release Process
+
+1. Checkout `develop` against the commit you plan to release.
+2. Build a production build with `yarn build`.
+3. Ensure CI is green and Local testing are successful (eg: `yarn test`).
+4. Update all versions with `yarn version:all (major/minor/patch)`.
+5. `git commit -m "vX.X.X"` and `git tag vX.X.X` where X.X.X is your new version.
+6. `yarn publish` to publish all packages to the npm repo.
+7. `git push && git push --tags` to push the release to github.
+8. Create a github release :tada:
