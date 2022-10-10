@@ -14,7 +14,7 @@
     "build:widget": "yarn workspace @userback/widget build",
     "build:react": "yarn workspace @userback/react build",
     "build:vue": "yarn workspace @userback/vue build",
-    "clean": "git clean -fx . -e node_modules -e .env -e .yarn",
+    "clean": "git clean -fx . -e node_modules -e .env -e .yarn -e .husky",
     "docs": "yarn typedoc --entryPointStrategy packages widget* --gitRevision master",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx",
     "publish": "yarn workspaces foreach --no-private npm publish --access public",
@@ -24,7 +24,8 @@
     "test": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
     "test:e2e": "yarn workspace e2e run test",
     "test:docker": "docker compose up -d && docker compose build playwright && docker compose run --rm playwright",
-    "test:docker:dev": "docker compose up -d && docker compose build playwright && docker compose -f docker-compose.yml -f docker-compose.dev.yml run --rm playwright"
+    "test:docker:dev": "docker compose up -d && docker compose build playwright && docker compose -f docker-compose.yml -f docker-compose.dev.yml run --rm playwright",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
     "typedoc": "^0.23.10",
     "typescript": "^4.7.4"
   },
