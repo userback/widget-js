@@ -1,7 +1,7 @@
 {
   "name": "example-react-class",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.4",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",

@@ -1,7 +1,7 @@
 {
   "name": "root",
   "description": "Root workspace for userback.io npm packages",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -21,11 +21,13 @@
     "start:widget": "yarn workspace example-js start",
     "start:react": "yarn workspace example-react start",
     "start:vue": "yarn workspace example-vue start",
-    "test": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
+    "test": "yarn workspaces foreach -p --no-private run test",
+    "test:examples": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
     "test:e2e": "yarn workspace e2e run test",
     "test:docker": "docker compose up -d && docker compose build playwright && docker compose run --rm playwright",
     "test:docker:dev": "docker compose up -d && docker compose build playwright && docker compose -f docker-compose.yml -f docker-compose.dev.yml run --rm playwright",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "version:all": "yarn workspaces foreach version"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.0",
