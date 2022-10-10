@@ -18,6 +18,7 @@ jobs:
         node-version: 16.x
         cache: yarn
     - run: yarn --immutable
+    - run: yarn build
     - run: yarn test
     - run: yarn lint
 
