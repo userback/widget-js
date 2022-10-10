@@ -1,0 +1,19 @@
+{
+  "name": "example-nuxt",
+  "version": "0.1.4",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@userback/vue": "workspace:^"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nuxt": "3.0.0-rc.11"
+  }
+}
