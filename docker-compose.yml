@@ -27,7 +27,10 @@ services:
     command: yarn workspace example-react run serve
   example-vue:
     <<: *base
-    command: yarn workspace example-react run serve
+    command: yarn workspace example-vue run serve
+  example-vue2:
+    <<: *base
+    command: yarn workspace example-vue2 run serve
 
   # Playwright task
   #
