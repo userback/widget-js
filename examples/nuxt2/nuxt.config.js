@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+
 dotenv.config({ path: '../../.env' });
 
 export default {
@@ -36,13 +37,11 @@ export default {
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    modules: [
-//        '@userback/vue',
-    ],
+    modules: [],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {
-    },
+    build: {},
+
     alias: {
         // @FIXME: Appears to be an issue with .mjs not being loaded correctly
         '@userback/vue': '@userback/vue/dist/vue.js',
