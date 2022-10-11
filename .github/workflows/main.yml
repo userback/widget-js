@@ -54,6 +54,7 @@ jobs:
     # Docker Cache using a private github container registry
     - uses: docker/build-push-action@v2
       with:
+        load: true
         context: .
         cache-from: type=gha
         cache-to: type=gha,mode=max
