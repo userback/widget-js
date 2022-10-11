@@ -1,5 +1,5 @@
 import Userback, { UserbackWidget } from '@userback/widget';
-import Vue, { Plugin } from 'vue';
+import { Plugin } from 'vue';
 
 declare module 'vue' {
   export interface ComponentCustomProperties {
@@ -17,7 +17,9 @@ const UserbackVue: Plugin = {
                 app.config.globalProperties.$userback = ub;
             } else {
                 // Vue2
-                (Vue as any).prototype.$userback = ub;
+                import('vue').then(Vue => {
+                    (Vue as any).prototype.$userback = ub;
+                })
             }
         });
     },

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
-    "target": "es6",
-    "module": "es6",
+    "target": "esnext",
+    "module": "esnext",
     "lib": ["es6", "dom"],
     "declaration": true,
     "outDir": "dist",
