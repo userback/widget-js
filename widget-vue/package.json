@@ -22,7 +22,7 @@
     "vue": ">=3"
   },
   "peerDependencies": {
-    "vue": ">=3"
+    "vue": ">=2"
   },
   "keywords": [
     "userback",
