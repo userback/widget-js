@@ -10,10 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@userback/vue": "workspace:^"
+    "@userback/vue": "workspace:^",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3",
     "nuxt": "3.0.0-rc.11"
   }
 }
