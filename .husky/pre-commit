@@ -4,4 +4,6 @@
 # Disable hook during CI
 [ -n "$CI" ] && exit 0
 
-yarn docs
+# Don't block on docs and wait on lint
+yarn docs &
+yarn lint --fix

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Userback, { UserbackWidget } from '@userback/widget';
 import { Plugin } from 'vue';
 
@@ -13,13 +14,12 @@ const UserbackVue: Plugin = {
         Userback(token, options).then((ub) => {
             if (typeof app.config.globalProperties !== 'undefined') {
                 // Vue3
-                // eslint-disable-next-line no-param-reassign
                 app.config.globalProperties.$userback = ub;
             } else {
                 // Vue2
-                import('vue').then(Vue => {
+                import('vue').then((Vue) => {
                     (Vue as any).prototype.$userback = ub;
-                })
+                });
             }
         });
     },
