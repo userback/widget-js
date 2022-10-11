@@ -1,5 +1,5 @@
 # @userback/vue
-The official NPM module for embedding the [Userback.io](https://userback.io) widget into your Vue application.
+The official NPM module for embedding the [Userback.io](https://userback.io) widget into your Vue2 or Vue3 application.
 
 ## Installation
 `npm i @userback/vue` or `yarn add @userback/vue`
@@ -27,6 +27,24 @@ The `$userback` API can now be used throughout your application:
 ```
 
 # Vue2
-@TODO
+
+Vue2 is also supported using the `Vue.prototype`:
+``` javascript
+import Vue from 'vue';
+import UserbackPlugin from '@userback/vue';
+
+Vue.use(UserbackPlugin, { token });
+new Vue({ render: (h) => h(App) }).$mount('#app');
+```
+
+Like in Vue3, you can use `$userback` globally:
+``` vue
+<template>
+  <div id="app">
+    <button type="button" v-on:click="$userback.open('bug')">Open Bugs</button>
+    <button type="button" v-on:click="$userback.open('general', 'screenshot')">Screenshot me!</button>
+  </div>
+</template>
+```
 
 For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
