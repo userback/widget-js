@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "serve": "yarn dev -H 0.0.0.0",
+    "serve2": "yarn build && nuxt generate && nuxt preview -H 0.0.0.0"
   },
   "dependencies": {
     "@userback/vue": "workspace:^",
