@@ -34,6 +34,9 @@ services:
   example-nuxt2:
     <<: *base
     command: yarn workspace example-nuxt2 run serve
+  example-nuxt:
+    <<: *base
+    command: yarn workspace example-nuxt run serve
 
   # Playwright task
   #
