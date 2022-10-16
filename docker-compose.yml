@@ -4,7 +4,7 @@ version: "3.8"
 #
 # Every example's common configuration they all inherit from
 x-base: &base
-  image: node:18
+  image: node:16
   networks:
     core:
   volumes:
@@ -31,6 +31,9 @@ services:
   example-vue2:
     <<: *base
     command: yarn workspace example-vue2 run serve
+  example-nuxt2:
+    <<: *base
+    command: yarn workspace example-nuxt2 run serve
 
   # Playwright task
   #

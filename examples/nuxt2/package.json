@@ -1,0 +1,26 @@
+{
+  "name": "example-nuxt2",
+  "version": "0.1.4",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "serve": "nuxt -H 0.0.0.0",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@userback/vue": "workspace:^",
+    "@userback/widget": "workspace:^",
+    "core-js": "^3.25.3",
+    "dotenv": "^16.0.3",
+    "nuxt": "^2.15.8",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0"
+  }
+}
