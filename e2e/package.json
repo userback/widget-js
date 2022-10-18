@@ -7,6 +7,6 @@
   },
   "packageManager": "yarn@3.2.2",
   "dependencies": {
-    "@playwright/test": "^1.27.0"
+    "@playwright/test": "^1.27.1"
   }
 }
