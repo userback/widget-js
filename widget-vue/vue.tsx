@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 import Userback, { UserbackWidget } from '@userback/widget';
-import { Plugin } from 'vue';
+import {
+    install, Vue2, isVue2, Plugin,
+} from 'vue-demi';
 
 declare module 'vue' {
   export interface ComponentCustomProperties {
@@ -8,18 +10,16 @@ declare module 'vue' {
   }
 }
 
+install();
+
 const UserbackVue: Plugin = {
-    install: (app, vueOptions) => {
+    install: (app: any, vueOptions: any) => {
         const { token, ...options } = vueOptions;
         Userback(token, options).then((ub) => {
-            if (typeof app.config.globalProperties !== 'undefined') {
-                // Vue3
-                app.config.globalProperties.$userback = ub;
+            if (isVue2) {
+                (Vue2 as any).prototype.$userback = ub;
             } else {
-                // Vue2
-                import('vue').then((Vue) => {
-                    (Vue as any).prototype.$userback = ub;
-                });
+                app.config.globalProperties.$userback = ub;
             }
         });
     },

@@ -9,20 +9,28 @@
   "scripts": {
     "build": "rollup -c",
     "test": "tsc --noEmit",
-    "watch": "tsc -w"
+    "watch": "yarn build --watch"
   },
   "dependencies": {
-    "@userback/widget": "workspace:^"
+    "@userback/widget": "workspace:^",
+    "vue-demi": "^0.13.11"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.4",
     "rollup": "^2.77.2",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "vue": ">=3"
+    "vue": ">=3.0.0",
+    "vue2": "npm:vue@2.6.14"
   },
   "peerDependencies": {
-    "vue": ">=2"
+    "@vue/composition-api": "*",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "keywords": [
     "userback",

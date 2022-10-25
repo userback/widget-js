@@ -9,7 +9,7 @@ function baseCfg(c) {
 export default {
     plugins: [typescript()],
     input: 'vue.tsx',
-    external: ['vue', '@userback/widget'],
+    external: ['vue', '@userback/widget', 'vue-demi'],
     output: [
         baseCfg({ file: './dist/vue.js', format: 'cjs' }),
         baseCfg({ file: './dist/vue.mjs', format: 'esm' }),
