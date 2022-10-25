@@ -10,6 +10,8 @@ node_modules/
 !.yarn/versions
 */.yarn/*
 
+# Yarn logs
+.log
 # Dist Folders
 widget-*/dist/*
 examples/*/dist
