@@ -1,6 +1,5 @@
-/* eslint-disable no-param-reassign */
 import Userback, { UserbackWidget } from '@userback/widget';
-import { Plugin } from 'vue';
+import Vue, { Plugin } from 'vue';
 
 declare module 'vue' {
   export interface ComponentCustomProperties {
@@ -12,7 +11,7 @@ const UserbackVue: Plugin = {
     install: (app, vueOptions) => {
         const { token, ...options } = vueOptions;
         Userback(token, options).then((ub) => {
-            app.config.globalProperties.$userback = ub;
+            (Vue as any).prototype.$userback = ub;
         });
     },
 };

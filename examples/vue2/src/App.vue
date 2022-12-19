@@ -1,3 +1,12 @@
+<script>
+export default {
+  data() { return { count: 0 }  },
+  methods: {
+    increment() { this.count += 1 }
+  }
+}
+</script>
+
 <template>
   <div id="app">
   <div>
@@ -5,6 +14,7 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  <button @click="increment">{{count}}</button>
   <hr />
   <button type="button" v-on:click="$userback.show()">Show</button>
   <button type="button" v-on:click="$userback.hide()">Hide</button>

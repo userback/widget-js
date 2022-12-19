@@ -8,7 +8,7 @@
     "serve": "yarn build && vite preview --host --port 3000"
   },
   "dependencies": {
-    "@userback/vue": "workspace:^",
+    "@userback/vue2": "workspace:^",
     "vite": "^2.0.5",
     "vue": "^2.6.12"
   },
