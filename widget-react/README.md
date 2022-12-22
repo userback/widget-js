@@ -1,6 +1,8 @@
 # @userback/react
 The official NPM module for embedding the [Userback.io](https://userback.io) widget into your React application.
 
+[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/userback-react-example-yl9q7z)
+
 ## Installation
 `npm i @userback/react` or `yarn add @userback/react`
 
