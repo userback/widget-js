@@ -156,7 +156,7 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         LOADING = true;
 
         // Defaults
-        const opts = ubOptions === 'undefined' ? {} : ubOptions;
+        const opts = typeof ubOptions === 'undefined' ? {} : ubOptions;
         const ubDomain = opts?.domain || 'userback.io';
 
         // Custom options
