@@ -57,7 +57,7 @@ jobs:
         context: .
         cache-from: type=gha
         cache-to: type=gha,mode=max
-    - run: yarn test:docker
+    - run: CURRENT_ID=0:0 yarn test:docker
 #    @TODO: Setup volumes for exporting artifacts
 #    - uses: actions/upload-artifact@v3
 #      if: always()
