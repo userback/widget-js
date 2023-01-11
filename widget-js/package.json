@@ -3,7 +3,7 @@
   "description": "Userback.io widget for Javascript and Typescript",
   "version": "0.1.4",
   "type": "module",
-  "main": "dist/widget.js",
+  "main": "dist/widget.mjs",
   "module": "dist/widget.mjs",
   "umd": "dist/widget.umd.js",
   "types": "dist/widget.d.ts",

@@ -6989,7 +6989,6 @@ __metadata:
     "@nuxt/types": ^2.15.8
     "@nuxt/typescript-build": ^2.1.0
     "@userback/vue2": "workspace:^"
-    "@userback/widget": "workspace:^"
     core-js: ^3.26.1
     dotenv: ^16.0.3
     nuxt: ^2.15.8

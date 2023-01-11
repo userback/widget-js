@@ -3,7 +3,7 @@
   "description": "Userback.io widget for React",
   "version": "0.1.4",
   "type": "module",
-  "main": "dist/react.js",
+  "main": "dist/react.cjs",
   "module": "dist/react.mjs",
   "umd": "dist/react.umd.js",
   "types": "dist/react.d.ts",

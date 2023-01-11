@@ -11,7 +11,7 @@ export default {
     input: 'vue.tsx',
     external: ['vue', '@userback/widget'],
     output: [
-        baseCfg({ file: './dist/vue.js', format: 'cjs' }),
+        baseCfg({ file: './dist/vue.cjs', format: 'cjs' }),
         baseCfg({ file: './dist/vue.mjs', format: 'esm' }),
         baseCfg({
             file: './dist/vue.umd.js',

@@ -42,10 +42,6 @@ export default {
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
 
-    alias: {
-        // @FIXME: Appears to be an issue with .mjs not being loaded correctly
-        '@userback/vue': '@userback/vue/dist/vue.js',
-    },
     env: {
         UB_TOKEN: process.env?.VITE_UB_TOKEN,
         UB_DOMAIN: process.env?.VITE_UB_DOMAIN,
