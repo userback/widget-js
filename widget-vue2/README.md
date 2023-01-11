@@ -8,7 +8,7 @@ The official NPM module for embedding the [Userback.io](https://userback.io) wid
 To use the Userback plugin you just need to utilize `Vue.use` and provide your token like so:
 ``` javascript
 import Vue from 'vue';
-import UserbackPlugin from '@userback/vue';
+import UserbackPlugin from '@userback/vue2';
 
 Vue.use(UserbackPlugin, { token: USERBACK_TOKEN });
 new Vue({ render: (h) => h(App) }).$mount('#app');

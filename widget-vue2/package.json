@@ -19,10 +19,10 @@
     "rollup": "^2.77.2",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "vue": ">=2"
+    "vue": "^2.7.14"
   },
   "peerDependencies": {
-    "vue": ">=2"
+    "vue": "^2"
   },
   "keywords": [
     "userback",

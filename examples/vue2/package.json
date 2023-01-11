@@ -10,10 +10,10 @@
   "dependencies": {
     "@userback/vue2": "workspace:^",
     "vite": "^2.0.5",
-    "vue": "^2.6.12"
+    "vue": "^2.7.14"
   },
   "devDependencies": {
     "vite-plugin-vue2": "^2.0.3",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.14"
   }
 }
