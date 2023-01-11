@@ -1,8 +1,9 @@
 {
   "name": "@userback/vue",
-  "description": "Userback.io widget for Vue",
+  "description": "Userback.io widget for Vue3",
   "version": "0.1.4",
-  "main": "dist/vue.js",
+  "type": "module",
+  "main": "dist/vue.cjs",
   "module": "dist/vue.mjs",
   "umd": "dist/vue.umd.js",
   "types": "dist/vue.d.ts",
@@ -19,14 +20,15 @@
     "rollup": "^2.79.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
-    "vue": ">=3"
+    "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "vue": ">=2"
+    "vue": ">=3"
   },
   "keywords": [
     "userback",
-    "vue"
+    "vue",
+    "vue3"
   ],
   "homepage": "https://github.com/userback/widget-js/tree/develop/widget-vue#readme",
   "bugs": {

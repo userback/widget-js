@@ -11,7 +11,7 @@ export default {
     input: 'react.tsx',
     external: ['react', 'react-dom', '@userback/widget'],
     output: [
-        baseCfg({ file: './dist/react.js', format: 'cjs' }),
+        baseCfg({ file: './dist/react.cjs', format: 'cjs' }),
         baseCfg({ file: './dist/react.mjs', format: 'esm' }),
         baseCfg({
             file: './dist/react.umd.js',
