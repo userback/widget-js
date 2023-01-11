@@ -26,7 +26,7 @@ const UserbackContext = createContext<UserbackFunctions | undefined>(
  */
 export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactProps>> = ({
     token,
-    options,
+    options = {},
     widgetSettings: widget_settings,
     children,
 }) => {
@@ -109,11 +109,6 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     ]);
 
     return (<UserbackContext.Provider value={providerValue}>{children}</UserbackContext.Provider>);
-};
-
-UserbackProvider.defaultProps = {
-    options: {},
-    widgetSettings: undefined,
 };
 
 export const useUserbackContext = () => {

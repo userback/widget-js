@@ -25,7 +25,6 @@
     "indent": ["warn", 4],
     "react/jsx-filename-extension": ["off"],
     "max-len": ["warn", 140],
-    "no-use-before-define": ["warn"],
     "no-unused-vars": ["warn"],
     "consistent-return": ["warn"],
     "camelcase": ["off"],
@@ -34,7 +33,8 @@
     "import/extensions": ["off"],
     "@typescript-eslint/ban-ts-comment": "off",
     "no-use-before-define": ["off"],
-    "react/function-component-definition": ["off"]
+    "react/function-component-definition": ["off"],
+    "react/require-default-props": ["off"]
   },
   "root": true,
   "ignorePatterns": [
