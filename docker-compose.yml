@@ -9,6 +9,8 @@ x-base: &base
     core:
   volumes:
     - .:/app
+  # Uses the current user's unix id. Run `echo $(id -u):$(id -g)`
+  user: ${CURRENT_UID:-1000:1000}
   working_dir: /app
   environment:
     - VITE_UB_TOKEN
