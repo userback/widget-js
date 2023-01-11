@@ -2,6 +2,7 @@
   "name": "@userback/vue",
   "description": "Userback.io widget for Vue3",
   "version": "0.1.4",
+  "type": "module",
   "main": "dist/vue.js",
   "module": "dist/vue.mjs",
   "umd": "dist/vue.umd.js",

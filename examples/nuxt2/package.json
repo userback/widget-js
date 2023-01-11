@@ -1,6 +1,7 @@
 {
   "name": "example-nuxt2",
   "version": "0.1.4",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "nuxt",
