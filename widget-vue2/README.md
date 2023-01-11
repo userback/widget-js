@@ -24,4 +24,4 @@ You can access the Userback api via the `Vue.prototype.$userback` object:
 </template>
 ```
 
-For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
+For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)
