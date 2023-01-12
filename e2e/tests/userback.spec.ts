@@ -83,7 +83,7 @@ test('Userback Nuxt2 Widget loads and can be opened', async ({ page }) => {
     await expect(page.locator('text="Report a bug"')).toHaveCount(1);
 });
 
-/* @FIXME: Issue with nuxt3 within docker ci need to be resolved
+// @FIXME: Issue with nuxt3 within docker ci need to be resolved
 test('Userback Nuxt3 Widget loads and can be opened', async ({ page }) => {
     // Error Handling
     page.on('pageerror', (err) => { console.error(err.message); });
@@ -98,5 +98,3 @@ test('Userback Nuxt3 Widget loads and can be opened', async ({ page }) => {
     await expect(page.locator('img.userback-controls-logo')).toHaveCount(1);
     await expect(page.locator('text="Report a bug"')).toHaveCount(1);
 });
-
-*/

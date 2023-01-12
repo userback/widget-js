@@ -25,7 +25,7 @@
     "test:examples": "yarn workspaces foreach --include \"*example*\" -p run build --minify false",
     "test:e2e": "yarn workspace e2e run test",
     "test:docker": "docker compose up -d && docker compose build playwright && docker compose run --rm playwright",
-    "test:docker:dev": "docker compose up -d && docker compose build playwright && docker compose -f docker-compose.yml -f docker-compose.dev.yml run --rm playwright",
+    "test:docker:dev": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d && docker compose build playwright && docker compose -f docker-compose.yml -f docker-compose.dev.yml run --rm playwright",
     "postinstall": "husky install",
     "version:all": "yarn workspaces foreach version"
   },

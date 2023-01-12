@@ -5,17 +5,17 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "serve": "nuxt dev --port 3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "serve": "yarn dev -H 0.0.0.0",
-    "serve2": "yarn build && nuxt generate && nuxt preview -H 0.0.0.0"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@userback/vue": "workspace:^",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.11"
+    "nuxt": "^3",
+    "serve": "^14.1.2"
   }
 }
