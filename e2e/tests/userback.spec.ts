@@ -25,11 +25,6 @@ test('Userback React Widget loads and can be opened', async ({ page }) => {
 
     await page.goto('http://example-react:3000/');
 
-    // When Authide is on
-    // await page.waitForSelector(FEEDBACK_BTN, { state: 'hidden' });
-    // await page.locator('text="Show"').click();
-    // await page.waitForSelector(FEEDBACK_BTN);
-
     // Open the userback widget
     await (await page.waitForSelector(FEEDBACK_BTN)).click();
 

@@ -40,7 +40,7 @@ services:
 
   # Playwright task
   #
-  # Uses profiles to only enable e2e testing when using `docker compose run`
+  # Uses profiles to only enable e2e testing when using `docker compose run --rm playwright`
   playwright:
     build:
       context: .
