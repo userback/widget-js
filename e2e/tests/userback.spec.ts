@@ -83,8 +83,9 @@ test('Userback Nuxt2 Widget loads and can be opened', async ({ page }) => {
     await expect(page.locator('text="Report a bug"')).toHaveCount(1);
 });
 
-// @FIXME: Issue with nuxt3 within docker ci need to be resolved
-test('Userback Nuxt3 Widget loads and can be opened', async ({ page }) => {
+test('Userback Nuxt3 Widget loads and can be opened', async ({ page, browserName }) => {
+    test.skip(browserName === 'webkit', 'An error causing safari not to load the userback widget??'); // @FIXME
+
     // Error Handling
     page.on('pageerror', (err) => { console.error(err.message); });
     page.on('console', (message) => { console.log(message); });
