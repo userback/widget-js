@@ -34,10 +34,13 @@ services:
   example-nuxt2:
     <<: *base
     command: yarn workspace example-nuxt2 run serve
+  example-nuxt:
+    <<: *base
+    command: yarn workspace example-nuxt run serve
 
   # Playwright task
   #
-  # Uses profiles to only enable e2e testing when using `docker compose run`
+  # Uses profiles to only enable e2e testing when using `docker compose run --rm playwright`
   playwright:
     build:
       context: .
