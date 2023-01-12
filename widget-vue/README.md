@@ -25,4 +25,17 @@ The `$userback` API can now be used throughout your application:
 </template>
 ```
 
+## Nuxt
+We also support the Nuxt framework and have an [example](https://github.com/userback/widget-js/tree/develop/examples/nuxt) of it's usage within a project.
+
+``` javascript
+// plugins/userback.client.js
+import UserbackPlugin from '@userback/vue';
+
+export default defineNuxtPlugin((nuxtApp) => {
+    const { UB_TOKEN: token } = useRuntimeConfig();
+    nuxtApp.vueApp.use(UserbackPlugin, { token });
+});
+```
+
 For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)

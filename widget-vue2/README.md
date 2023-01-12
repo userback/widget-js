@@ -24,4 +24,13 @@ You can access the Userback api via the `Vue.prototype.$userback` object:
 </template>
 ```
 
+## Nuxt
+We also support the Nuxt framework and have an [example](https://github.com/userback/widget-js/tree/develop/examples/nuxt2) of it's usage within a project.
+
+``` javascript
+// plugins/userback.client.js
+import UserbackPlugin from '@userback/vue2';
+Vue.use(UserbackPlugin, { token: process.env.USERBACK_TOKEN });
+```
+
 For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)
