@@ -2,8 +2,12 @@ undecided:
   - root
   - e2e
   - example-js
+  - example-nuxt
+  - example-nuxt2
   - example-react
   - example-react-class
   - example-vue
+  - example-vue2
   - "@userback/widget"
   - "@userback/react"
+  - "@userback/vue"
