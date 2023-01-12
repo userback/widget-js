@@ -5,7 +5,7 @@
 
 <p>
 <img alt="version" src="https://img.shields.io/github/package-json/v/userback/widget-js" />
-<img alt="ci status" src="https://img.shields.io/github/workflow/status/userback/widget-js/Userback%20Widgets">
+<img alt="ci status" src="https://img.shields.io/github/actions/workflow/status/userback/widget-js/main.yml?branch=master">
 <img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
 <img alt="license" src="https://img.shields.io/github/license/userback/widget-js" />
 </p>
@@ -14,6 +14,7 @@
 - [@userback/widget](widget-js/)
 - [@userback/react](widget-react/)
 - [@userback/vue](widget-vue/)
+- [@userback/vue2](widget-vue2/)
 
 ## Developing and running examples
 After cloning the repo, you can install all dependencies and build the widgets with:
@@ -34,7 +35,7 @@ yarn test:docker
 ```
 
 ## Documentation
-Refer to each of the packages listed above for framework specific documentation and examples. For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
+Refer to each of the packages listed above for framework specific documentation and examples. For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)
 
 ## Release Process
 

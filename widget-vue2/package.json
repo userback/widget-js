@@ -1,12 +1,12 @@
 {
-  "name": "@userback/react",
-  "description": "Userback.io widget for React",
+  "name": "@userback/vue2",
+  "description": "Userback.io widget for Vue2",
   "version": "0.1.4",
   "type": "module",
-  "main": "dist/react.cjs",
-  "module": "dist/react.mjs",
-  "umd": "dist/react.umd.js",
-  "types": "dist/react.d.ts",
+  "main": "dist/vue.cjs",
+  "module": "dist/vue.mjs",
+  "umd": "dist/vue.umd.js",
+  "types": "dist/vue.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "tsc --noEmit",
@@ -16,22 +16,21 @@
     "@userback/widget": "workspace:^"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.5.0",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
-    "rollup": "^2.79.1",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.4"
+    "@rollup/plugin-typescript": "^8.3.4",
+    "rollup": "^2.77.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "vue": "^2.7.14"
   },
   "peerDependencies": {
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "vue": "^2"
   },
   "keywords": [
     "userback",
-    "react"
+    "vue",
+    "vue2"
   ],
-  "homepage": "https://github.com/userback/widget-js/tree/develop/widget-react#readme",
+  "homepage": "https://github.com/userback/widget-js/tree/develop/widget-vue2#readme",
   "bugs": {
     "url": "https://github.com/userback/widget-js/issues"
   },
@@ -41,7 +40,7 @@
   },
   "license": "MIT",
   "typedoc": {
-    "entryPoint": "react.tsx",
+    "entryPoint": "vue.tsx",
     "readmeFile": "README.md"
   },
   "packageManager": "yarn@3.2.2"

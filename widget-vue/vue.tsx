@@ -12,15 +12,7 @@ const UserbackVue: Plugin = {
     install: (app, vueOptions) => {
         const { token, ...options } = vueOptions;
         Userback(token, options).then((ub) => {
-            if (typeof app.config.globalProperties !== 'undefined') {
-                // Vue3
-                app.config.globalProperties.$userback = ub;
-            } else {
-                // Vue2
-                import('vue').then((Vue) => {
-                    (Vue as any).prototype.$userback = ub;
-                });
-            }
+            app.config.globalProperties.$userback = ub;
         });
     },
 };

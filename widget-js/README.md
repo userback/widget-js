@@ -50,4 +50,4 @@ document.querySelector('button.screenshot').addEventListener('click', (event) =>
 ```
 
 
-For more information about available configuration settings and and functions available, see our [Javascript API](https://support.userback.io/en/articles/5209252-javascript-api)
+For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)

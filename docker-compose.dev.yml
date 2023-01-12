@@ -1,5 +1,9 @@
 version: "3.8"
 
+x-base: &base
+  # Uses the current user's unix id. Run `echo $(id -u):$(id -g)`
+  user: ${CURRENT_UID:-1000:1000}
+
 services:
   playwright:
     networks:
