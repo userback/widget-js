@@ -3,6 +3,14 @@
   "description": "Userback.io widget for React",
   "version": "0.2.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.cjs",
+      "types": "./dist/react.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "dist/react.cjs",
   "module": "dist/react.mjs",
   "umd": "dist/react.umd.js",
