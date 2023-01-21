@@ -3,6 +3,14 @@
   "description": "Userback.io widget for Javascript and Typescript",
   "version": "0.2.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/widget.mjs",
+      "require": "./dist/widget.cjs",
+      "types": "./dist/widget.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "dist/widget.mjs",
   "module": "dist/widget.mjs",
   "umd": "dist/widget.umd.js",

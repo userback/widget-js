@@ -3,6 +3,14 @@
   "description": "Userback.io widget for Vue3",
   "version": "0.2.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/vue.mjs",
+      "require": "./dist/vue.cjs",
+      "types": "./dist/vue.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "dist/vue.cjs",
   "module": "dist/vue.mjs",
   "umd": "dist/vue.umd.js",
