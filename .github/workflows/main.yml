@@ -7,6 +7,13 @@ on:
 
 jobs:
 
+  # Scan for vulnerable dependencies (npm audit)
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/dependency-review-action@v2
+
   # Ensure basic typescript checks and linting passes
   lint:
     runs-on: ubuntu-latest
