@@ -41,7 +41,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     env:
-      VITE_UB_TOKEN: ${{ secrets.UB_TOKEN }}
+      VITE_UB_TOKEN: ${{ vars.UB_TOKEN }}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
