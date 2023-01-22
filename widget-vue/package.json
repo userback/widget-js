@@ -1,7 +1,7 @@
 {
   "name": "@userback/vue",
   "description": "Userback.io widget for Vue3",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "exports": {
     ".": {
