@@ -132,28 +132,26 @@ declare global {
 // be deleted from the `window` scope when using this module.
 let USERBACK: UserbackWidget | undefined;
 
-// Internal value for ensuring a module cannot load twice
-let LOADING = false;
-
 /* eslint-enable no-unused-vars */
-
+// internal variable for storing a pending load of the widget to prevent loading the widget twice
+let UBLoadingPromise: Promise<UserbackWidget> | undefined;
 /*
  * UserbackWidgetLoader
  *
  * Provides a type-safe interface for initializing and retrieving the Userback object
  */
 export default function UserbackWidgetLoader(token: string, ubOptions?: UserbackOptions): Promise<UserbackWidget> {
-    return new Promise((resolve, reject) => {
+    if (UBLoadingPromise) return UBLoadingPromise;
+
+    UBLoadingPromise = new Promise((resolve, reject) => {
         // Validation
         const error = (e: string | Event) => reject(new Error(e.toString()));
-        if (LOADING === true) { return error('Userback widget already loading!'); }
         if (typeof USERBACK !== 'undefined') {
             // eslint-disable-next-line no-console
             console.debug('Userback widget loaded twice, canceling initialisation');
             return resolve(USERBACK);
         }
         if (!token) { return error('A valid token must be provided from https://userback.io'); }
-        LOADING = true;
 
         // Defaults
         const opts = typeof ubOptions === 'undefined' ? {} : ubOptions;
@@ -173,18 +171,18 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
             window.Userback.init(token, {
                 ...opts,
                 on_load: () => {
-                    LOADING = false;
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
 
                     if (typeof opts?.on_load === 'function') { opts.on_load(); }
 
-                    // Monkeypatch Userback.destory to ensure we keep our USERBACK reference in sync
+                    // Monkeypatch Userback.destroy to ensure we keep our USERBACK reference in sync
                     const origDestory = USERBACK.destroy;
-                    USERBACK.destroy = function proxyDestory() {
+                    USERBACK.destroy = function proxyDestroy() {
                         origDestory();
                         USERBACK = undefined;
+                        UBLoadingPromise = undefined;
                     };
                     return resolve(USERBACK);
                 },
@@ -197,10 +195,12 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         script.src = `https://static.${ubDomain}/widget/v1.js`;
         script.async = true;
         script.onload = onload;
-        script.onerror = (err) => error(err);
+        script.onerror = error;
         document.body.appendChild(script);
         return true;
     });
+    UBLoadingPromise.catch(() => { UBLoadingPromise = undefined; });
+    return UBLoadingPromise;
 }
 
 /**
