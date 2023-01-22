@@ -178,9 +178,9 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
                     if (typeof opts?.on_load === 'function') { opts.on_load(); }
 
                     // Monkeypatch Userback.destroy to ensure we keep our USERBACK reference in sync
-                    const origDestory = USERBACK.destroy;
+                    const origDestroy = USERBACK.destroy;
                     USERBACK.destroy = function proxyDestroy() {
-                        origDestory();
+                        origDestroy();
                         USERBACK = undefined;
                         UBLoadingPromise = undefined;
                     };
