@@ -15,7 +15,7 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "nuxt": "^3.0.0",
-    "serve": "^14.1.2"
+    "nuxt": "^3.2.2",
+    "serve": "^14.2.0"
   }
 }
