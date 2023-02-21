@@ -12,6 +12,7 @@ export interface UserbackReactProps {
   token: string,
   options?: UserbackOptions,
   widgetSettings?: UserbackWidgetSettings,
+  delayInit?: boolean,
 }
 
 const UserbackContext = createContext<UserbackFunctions | undefined>(
@@ -28,24 +29,26 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     token,
     options = {},
     widgetSettings: widget_settings,
+    delayInit = false,
     children,
 }) => {
     const ubLoaded = useRef(false);
-    const [Userback, setUserback] = useState(undefined as UserbackWidget | undefined);
+    const [Userback, setUserback] = useState<UserbackWidget>();
 
-    const init = useCallback(async (_token: string, _options?: UserbackOptions) => {
+    const init = useCallback(async (_token: string = token, _options: UserbackOptions = { widget_settings, ...options }) => {
+        if (Userback) return Userback;
         ubLoaded.current = true;
         const ub = await UserbackInit(_token, _options);
         setUserback(ub);
         return ub;
-    }, [setUserback]);
+    }, [Userback, token, widget_settings, options]);
 
     // onMount
     useEffect(() => {
-        if (!ubLoaded.current) {
+        if (!ubLoaded.current && !delayInit) {
             init(token, { widget_settings, ...options });
         }
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [delayInit]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Api hooks
     const hide = useCallback(() => { Userback?.hide(); }, [Userback]);
