@@ -15,7 +15,7 @@ Userback('**USERBACK_TOKEN**')
 Show the Userback Widget immediately after loading on the bug screen.
 ``` javascript
 Userback(..).then(ub => {
-    ub.show('bug')
+    ub.show()
 })
 ```
 
