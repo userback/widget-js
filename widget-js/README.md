@@ -1,8 +1,6 @@
 # @userback/widget
 The official NPM module for embedding the [Userback.io](https://userback.io) widget into your Javascript or Typescript application.
 
-[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/focused-moon-7nunxg)
-
 ## Installation
 `npm i @userback/widget` or `yarn add @userback/widget`
 
