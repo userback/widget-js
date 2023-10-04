@@ -5,17 +5,17 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "serve": "nuxt dev --port 3000",
+    "serve": "rm -rf /tmp/nitro && nuxt dev --port 3000 --host 0.0.0.0",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@userback/vue": "workspace:^",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "nuxt": "^3.2.2",
-    "serve": "^14.2.0"
+    "nuxt": "^3.7.4",
+    "serve": "^14.2.1"
   }
 }

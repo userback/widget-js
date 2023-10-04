@@ -2,10 +2,9 @@ import * as dotenv from 'dotenv';
 
 dotenv.config({ path: '../../.env' });
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// @see https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
 // eslint-disable-next-line no-undef
 export default defineNuxtConfig({
-    target: 'static',
     runtimeConfig: {
         public: {
             UB_TOKEN: process.env?.VITE_UB_TOKEN,

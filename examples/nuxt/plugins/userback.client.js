@@ -2,6 +2,8 @@
 import UserbackPlugin from '@userback/vue';
 
 export default defineNuxtPlugin((nuxtApp) => {
-    const { UB_TOKEN: token, UB_DOMAIN: domain } = useRuntimeConfig();
+    const config = useRuntimeConfig();
+    const token = config.public.UB_TOKEN;
+    const domain = config.public.UB_DOMAIN;
     nuxtApp.vueApp.use(UserbackPlugin, { token, domain });
 });
