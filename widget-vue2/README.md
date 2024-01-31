@@ -1,5 +1,5 @@
 # @userback/vue2
-The official NPM module for embedding the [Userback.io](https://userback.io) widget into your Vue2 or Vue3 application. If you are using Vue3 we also have [@userback/vue3](https://github.com/userback/widget-js/tree/develop/widget-vue3)
+The official NPM module for embedding the [Userback.io](https://userback.io) widget into your Vue2 or Vue3 application. If you are using Vue3 we also have [@userback/vue](https://github.com/userback/widget-js/tree/develop/widget-vue)
 
 ## Installation
 `npm i @userback/vue2` or `yarn add @userback/vue2`
