@@ -134,18 +134,25 @@ let USERBACK: UserbackWidget | undefined;
 
 /* eslint-enable no-unused-vars */
 // internal variable for storing a pending load of the widget to prevent loading the widget twice
+// When undefined, the widget is not currently loading.
 let UBLoadingPromise: Promise<UserbackWidget> | undefined;
 /*
  * UserbackWidgetLoader
  *
  * Provides a type-safe interface for initializing and retrieving the Userback object
+ * @param token - The Userback token to use for initialisation
+ * @param ubOptions - Optional configuration options for the Userback widget
+ * @returns A promise that resolves to the UserbackWidget object
  */
 export default function UserbackWidgetLoader(token: string, ubOptions?: UserbackOptions): Promise<UserbackWidget> {
     if (UBLoadingPromise) return UBLoadingPromise;
 
     UBLoadingPromise = new Promise((resolve, reject) => {
         // Validation
-        const error = (e: string | Event) => reject(new Error(e.toString()));
+        const error = (e: string | Event) => {
+            UBLoadingPromise = undefined;
+            return reject(typeof e === 'string' ? new Error(e) : e);
+        };
         if (typeof USERBACK !== 'undefined') {
             // eslint-disable-next-line no-console
             console.debug('Userback widget loaded twice, canceling initialisation');
@@ -195,11 +202,10 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         script.src = `https://static.${ubDomain}/widget/v1.js`;
         script.async = true;
         script.onload = onload;
-        script.onerror = error;
+        script.addEventListener('error', error);
         document.body.appendChild(script);
         return true;
     });
-    UBLoadingPromise.catch(() => { UBLoadingPromise = undefined; });
     return UBLoadingPromise;
 }
 
