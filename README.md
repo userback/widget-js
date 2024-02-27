@@ -5,7 +5,7 @@
 
 <p>
 <img alt="version" src="https://img.shields.io/github/package-json/v/userback/widget-js" />
-<img alt="ci status" src="https://img.shields.io/github/actions/workflow/status/userback/widget-js/main.yml?branch=master">
+<img alt="ci status" src="https://img.shields.io/github/actions/workflow/status/userback/widget-js/main.yml">
 <img alt="known vulnerabilities" src="https://snyk.io/test/github/userback/widget-js/badge.svg">
 <img alt="license" src="https://img.shields.io/github/license/userback/widget-js" />
 </p>
