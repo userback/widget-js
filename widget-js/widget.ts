@@ -75,7 +75,7 @@ export interface UserbackOptions {
     /* Use browser built-in Screen Capture API to capture screenshots */
     native_screenshot?: boolean,
     domain?: string,
-
+    on_init?: Function,
     on_load?: Function,
     /* The on_open event is triggered when the Feedback button is clicked */
     on_open?: Function,
@@ -114,6 +114,8 @@ export interface UserbackFunctions {
      * @param custom_data - A non-nested object containg custom metadata
      */
     setData: (custom_data: Object) => void,
+    openSurvey: (key: string) => void,
+    closeSurvey: () => void,
 }
 
 export interface UserbackWidget extends UserbackOptions, UserbackFunctions {
@@ -177,12 +179,12 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
             if (typeof window.Userback === 'undefined') { return error('`window.Userback` was somehow deleted while loading!'); }
             window.Userback.init(token, {
                 ...opts,
-                on_load: () => {
+                on_init: () => {
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
 
-                    if (typeof opts?.on_load === 'function') { opts.on_load(); }
+                    if (typeof opts?.on_init === 'function') { opts.on_init(); }
 
                     // Monkeypatch Userback.destroy to ensure we keep our USERBACK reference in sync
                     const origDestroy = USERBACK.destroy;
