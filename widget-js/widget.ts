@@ -116,6 +116,7 @@ export interface UserbackFunctions {
     setData: (custom_data: Object) => void,
     openSurvey: (key: string) => void,
     closeSurvey: () => void,
+    refresh: () => void,
 }
 
 export interface UserbackWidget extends UserbackOptions, UserbackFunctions {
