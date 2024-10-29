@@ -38,12 +38,12 @@ Userback(access_token, { autohide: true }).then(ub => {
 
 After initialisation, you can use the named function `getUserback` to get a reference to the UserbackWidget.
 ``` javascript
-import { getUserback } from '@userback/widget'
+import { getUserback } from '@userback/widget';
 
 document.querySelector('button.screenshot').addEventListener('click', (event) => {
     event.preventDefault()
     getUserback().open('bug', 'screenshot')
-})
+});
 ```
 
 
