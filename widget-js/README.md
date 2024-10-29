@@ -7,34 +7,33 @@ The official NPM module for embedding the [Userback.io](https://userback.io) wid
 ## Quickstart
 
 ``` javascript
-import Userback from '@userback/widget'
-Userback('**USERBACK_TOKEN**')
+import Userback from '@userback/widget';
+Userback('**USERBACK_TOKEN**', options);
 ```
 
 ## Examples
-Show the Userback Widget immediately after loading on the bug screen.
+Show the Userback Widget with user data identified.
 ``` javascript
-Userback(..).then(ub => {
-    ub.show()
-})
+const options = {
+  user_data: {
+    id: "123456",
+    info: {
+      name: "someone",
+      email: "someone@example.com"
+    }
+  }
+};
+
+Userback('**USERBACK_TOKEN**', options);
 ```
 
-Or delay showing it until later:
+Show the widget on clicking a custom button.
 ``` javascript
-Userback(.., { autohide: true }).then(ub => {
-    document.querySelector('button.show-feedback').addEventListener('click', function(){
-        ub.show()
-    })
-})
-```
-
-Using the options object to enable native screenshots while binding screenshots to a HTML button:
-``` javascript
-const userback = await Userback(..., { navtive_screenshot: true })
-document.querySelector('button.screenshot').addEventListener('click', (event) => {
-    event.preventDefault()
-    userback.open('bug', 'screenshot')
-})
+Userback(access_token, { autohide: true }).then(ub => {
+    document.querySelector('.my-own-help-button').addEventListener('click', function() {
+        ub.show();
+    });
+});
 ```
 
 After initialisation, you can use the named function `getUserback` to get a reference to the UserbackWidget.
