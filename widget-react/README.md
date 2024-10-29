@@ -10,17 +10,13 @@ The official NPM module for embedding the [Userback.io](https://userback.io) wid
 The easiest way to get started with Userback is to simply use the Provider near the top of you React Tree like so:
  
 ``` jsx
-import { UserbackProvider } from '@userback/react'
+import { UserbackProvider } from '@userback/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  return (
-    <React.StrictMode>
-      <UserbackProvider token={USERBACK_TOKEN}>
-        <App />
-      </UserbackProvider>
-    </React.StrictMode>
-  )
-)
+  <UserbackProvider token="**USERBACK_TOKEN**">
+    <App />
+  </UserbackProvider>
+);
 ```
 
 With a valid token provided, the Userback Widget will automatically load and be ready to use!
@@ -29,12 +25,22 @@ With a valid token provided, the Userback Widget will automatically load and be 
 Along with `token`, you can also provide an `options` prop:
 
 ``` jsx
-const {email, name} = getUserDetails()
-const ubOptions = { email, name, priority: 'high', autohide: true }
-return (
-  <UserbackProvider token={USERBACK_TOKEN} options={ubOptions} >
+import { UserbackProvider } from '@userback/react';
+
+// identify your logged-in users (optional)
+const user_data = {
+    id: "123456", // example data
+    info: {
+      name: "someone", // example data
+      email: "someone@example.com" // example data
+    }
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <UserbackProvider token="**USERBACK_TOKEN**" options={{user_data: user_data}}>
     <App />
-  </UserbackProvider>)
+  </UserbackProvider>
+);
 ```
 
 
