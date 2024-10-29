@@ -41,8 +41,8 @@ After initialisation, you can use the named function `getUserback` to get a refe
 import { getUserback } from '@userback/widget';
 
 document.querySelector('button.screenshot').addEventListener('click', (event) => {
-    event.preventDefault()
-    getUserback().open('bug', 'screenshot')
+    event.preventDefault();
+    getUserback().open('bug', 'screenshot');
 });
 ```
 
