@@ -38,4 +38,4 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 ```
 
-For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)
+For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/docs/javascript-sdk)

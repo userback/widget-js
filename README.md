@@ -35,7 +35,7 @@ yarn test:docker
 ```
 
 ## Documentation
-Refer to each of the packages listed above for framework specific documentation and examples. For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/reference/javascript-api-overview)
+Refer to each of the packages listed above for framework specific documentation and examples. For more information about available configuration settings and and functions available, see our [Javascript API](https://docs.userback.io/docs/javascript-sdk)
 
 ## Release Process
 
