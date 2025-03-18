@@ -78,6 +78,15 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
     const openSurvey = useCallback((key: string) => Userback?.openSurvey(key), [Userback]);
     const closeSurvey = useCallback(() => Userback?.closeSurvey(), [Userback]);
     const refresh = useCallback(() => Userback?.refresh(), [Userback]);
+    const showLauncher = useCallback(() => Userback?.showLauncher(), [Userback]);
+    const hideLauncher = useCallback(() => Userback?.hideLauncher(), [Userback]);
+
+    const startSessionReplay = useCallback((session_replay_option: Object) => {
+        Userback?.startSessionReplay(session_replay_option);
+    }, [Userback]);
+
+    const stopSessionReplay = useCallback(() => Userback?.stopSessionReplay(), [Userback]);
+    const addCustomEvent = useCallback((event: string, data: Object) => Userback?.addCustomEvent(event, data), [Userback]);
 
     // Create the provider values, usable upstream by users
     const providerValue = React.useMemo<UserbackFunctions>(() => ({
@@ -99,6 +108,11 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         openSurvey,
         closeSurvey,
         refresh,
+        showLauncher,
+        hideLauncher,
+        startSessionReplay,
+        stopSessionReplay,
+        addCustomEvent,
     }), [
         init,
         show,
@@ -118,6 +132,11 @@ export const UserbackProvider: React.FC<React.PropsWithChildren<UserbackReactPro
         openSurvey,
         closeSurvey,
         refresh,
+        showLauncher,
+        hideLauncher,
+        startSessionReplay,
+        stopSessionReplay,
+        addCustomEvent,
     ]);
 
     return (<UserbackContext.Provider value={providerValue}>{children}</UserbackContext.Provider>);
