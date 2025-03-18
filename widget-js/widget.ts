@@ -107,7 +107,7 @@ export interface UserbackFunctions {
     setCategories: (categories: string) => void,
     setPriority: (priority: string) => void,
     identify: (user_id: string, user_info: Object) => void,
-    addHeader: (key: string, value: string) => void
+    addHeader: (key: string, value: string) => void,
     /**
      * Reset custom data after JavaScript SDK is loaded.
      *
@@ -117,6 +117,11 @@ export interface UserbackFunctions {
     openSurvey: (key: string) => void,
     closeSurvey: () => void,
     refresh: () => void,
+    showLauncher: () => void,
+    hideLauncher: () => void,
+    startSessionReplay: (options: Object) => void,
+    stopSessionReplay: () => void,
+    addCustomEvent: (event: string, data: Object) => void
 }
 
 export interface UserbackWidget extends UserbackOptions, UserbackFunctions {
