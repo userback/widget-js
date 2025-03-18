@@ -1,7 +1,7 @@
 {
   "name": "@userback/widget",
   "description": "Userback.io widget for Javascript and Typescript",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "type": "module",
   "exports": {
     ".": {
