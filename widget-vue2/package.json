@@ -21,7 +21,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@userback/widget": "workspace:^"
+    "@userback/widget": "0.3.9"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.5.0",

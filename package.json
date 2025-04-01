@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "widget-*",
+    "widget-js",
     "examples/*",
     "e2e"
   ],
