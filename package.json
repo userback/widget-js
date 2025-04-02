@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "widget-*",
+    "widget-js",
     "examples/*",
     "e2e"
   ],
@@ -15,7 +15,7 @@
     "build:react": "yarn workspace @userback/react build",
     "build:vue": "yarn workspace @userback/vue build",
     "clean": "git clean -fx . -e node_modules -e .env -e .yarn -e .husky",
-    "docs": "yarn typedoc --entryPointStrategy packages widget* --gitRevision master",
+    "docs": "yarn typedoc --entryPointStrategy packages widget-js --gitRevision master",
     "lint": "yarn eslint . --ext js,ts,jsx,tsx",
     "publish": "yarn workspaces foreach --no-private npm publish --access public",
     "start:widget": "yarn workspace example-js start",
