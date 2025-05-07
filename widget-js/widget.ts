@@ -88,6 +88,9 @@ export interface UserbackOptions {
 
     // Userback Module Specific functions (not in window.Userback.init().options)
     autohide?: boolean,
+
+    // user data
+    user_data?: any
 }
 
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
