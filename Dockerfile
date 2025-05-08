@@ -5,9 +5,16 @@ RUN corepack enable && corepack prepare yarn@3.2.2 --activate
 
 USER pwuser
 WORKDIR /home/pwuser
+# Copy root-level package files
+COPY --chown=pwuser package.json yarn.lock .yarnrc.yml .yarn/ /home/pwuser/
 
-COPY --chown=pwuser e2e/ /home/pwuser
-# Clean Yarn cache and install dependencies
-RUN yarn cache clean && yarn install --immutable
+# Copy the whole workspace (including e2e project and others)
+COPY --chown=pwuser . /home/pwuser
+
+# Install dependencies from workspace root
+RUN yarn install --immutable
+
+# Set working directory to e2e package if needed
+WORKDIR /home/pwuser/e2e
 
 CMD ["yarn", "test"]
