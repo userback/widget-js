@@ -7,6 +7,6 @@ USER pwuser
 WORKDIR /home/pwuser
 
 COPY --chown=pwuser e2e/ /home/pwuser
-RUN yarn --frozen-lockfile
+RUN yarn install --immutable
 
 CMD ["yarn", "test"]
