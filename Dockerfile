@@ -7,6 +7,7 @@ USER pwuser
 WORKDIR /home/pwuser
 
 COPY --chown=pwuser e2e/ /home/pwuser
-RUN yarn install
+# Clean Yarn cache and install dependencies
+RUN yarn cache clean && yarn install --immutable
 
 CMD ["yarn", "test"]
