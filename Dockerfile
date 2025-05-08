@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.37.1-focal as e2e
+FROM mcr.microsoft.com/playwright:v1.50.0-noble as e2e
 
 USER pwuser
 WORKDIR /home/pwuser
