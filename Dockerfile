@@ -1,5 +1,8 @@
 FROM mcr.microsoft.com/playwright:v1.37.1-focal as e2e
 
+# Upgrade Yarn to 3.2.2
+RUN corepack enable && corepack prepare yarn@3.2.2 --activate
+
 USER pwuser
 WORKDIR /home/pwuser
 
