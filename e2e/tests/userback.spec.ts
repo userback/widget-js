@@ -15,7 +15,7 @@ test('Userback JS Widget loads and can be opened', async ({ page }) => {
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
 
 test('Userback React Widget loads and can be opened', async ({ page }) => {
@@ -30,7 +30,7 @@ test('Userback React Widget loads and can be opened', async ({ page }) => {
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
 
 test('Userback Vue3 Widget loads and can be opened', async ({ page }) => {
@@ -45,7 +45,7 @@ test('Userback Vue3 Widget loads and can be opened', async ({ page }) => {
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
 
 test('Userback Vue2 Widget loads and can be opened', async ({ page }) => {
@@ -60,7 +60,7 @@ test('Userback Vue2 Widget loads and can be opened', async ({ page }) => {
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
 
 test('Userback Nuxt2 Widget loads and can be opened', async ({ page }) => {
@@ -75,7 +75,7 @@ test('Userback Nuxt2 Widget loads and can be opened', async ({ page }) => {
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
 
 test('Userback Nuxt3 Widget loads and can be opened', async ({ page, browserName }) => {
@@ -92,5 +92,5 @@ test('Userback Nuxt3 Widget loads and can be opened', async ({ page, browserName
 
     // Check for pop-up content
     await expect(page.locator('div.userback-controls')).toHaveCount(1);
-    await expect(page.locator('text="Report a bug"')).toHaveCount(1);
+    await expect(page.locator('text="Send feedback"')).toHaveCount(1);
 });
