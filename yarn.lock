@@ -5148,54 +5148,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback/react@workspace:^, @userback/react@workspace:widget-react":
-  version: 0.0.0-use.local
-  resolution: "@userback/react@workspace:widget-react"
+"@userback/react@npm:0.3.9":
+  version: 0.3.9
+  resolution: "@userback/react@npm:0.3.9"
   dependencies:
-    "@rollup/plugin-typescript": ^8.5.0
-    "@types/react": ^18.2.21
-    "@types/react-dom": ^18.2.7
-    "@userback/widget": "workspace:^"
-    rollup: ^2.79.1
-    tslib: ^2.6.2
-    typescript: ^4.9.5
+    "@userback/widget": ^0.3.9
   peerDependencies:
     react: ">=17.0.0"
     react-dom: ">=17.0.0"
-  languageName: unknown
-  linkType: soft
+  checksum: 55292dfa13d231207e5896e7bedc0f86f59b94e7277be6112e58f4a436394cd3ccc556ddd54cf9f098af923ead712dd9ea1fde64e08d760663ddf9f6ead13d20
+  languageName: node
+  linkType: hard
 
-"@userback/vue2@workspace:^, @userback/vue2@workspace:widget-vue2":
-  version: 0.0.0-use.local
-  resolution: "@userback/vue2@workspace:widget-vue2"
+"@userback/vue2@npm:0.3.9":
+  version: 0.3.9
+  resolution: "@userback/vue2@npm:0.3.9"
   dependencies:
-    "@rollup/plugin-typescript": ^8.5.0
-    "@userback/widget": "workspace:^"
-    rollup: ^2.79.1
-    tslib: ^2.6.2
-    typescript: ^4.9.5
-    vue: ^2.7.14
+    "@userback/widget": ^0.3.9
   peerDependencies:
     vue: ^2
-  languageName: unknown
-  linkType: soft
+  checksum: 517152083f336d67dc3511bbe3c669469f3cc3f36dbcdf5edb3e69973eb35efb0c95711d6fcd36e4e544c78ea1af23b4248411e4305e6610513f83bbf0dd5ecb
+  languageName: node
+  linkType: hard
 
-"@userback/vue@workspace:^, @userback/vue@workspace:widget-vue":
-  version: 0.0.0-use.local
-  resolution: "@userback/vue@workspace:widget-vue"
+"@userback/vue@npm:0.3.9":
+  version: 0.3.9
+  resolution: "@userback/vue@npm:0.3.9"
   dependencies:
-    "@rollup/plugin-typescript": ^8.5.0
-    "@userback/widget": "workspace:^"
-    rollup: ^2.79.1
-    tslib: ^2.6.2
-    typescript: ^4.9.5
-    vue: ^3.3.4
+    "@userback/widget": ^0.3.9
   peerDependencies:
     vue: ">=3"
-  languageName: unknown
-  linkType: soft
+  checksum: 4cafabdc02ae322f54e71fb9901ab3cd12a57f2bd49ac99369de735b3c5840e24e60146687c7c4b6181b8828342dc508c6914ecce729e8b8c25f488625e9b3c1
+  languageName: node
+  linkType: hard
 
-"@userback/widget@workspace:^, @userback/widget@workspace:widget-js":
+"@userback/widget@^0.3.9, @userback/widget@workspace:^, @userback/widget@workspace:widget-js":
   version: 0.0.0-use.local
   resolution: "@userback/widget@workspace:widget-js"
   dependencies:
@@ -10091,7 +10078,7 @@ __metadata:
   dependencies:
     "@nuxt/types": ^2.17.1
     "@nuxt/typescript-build": ^2.1.0
-    "@userback/vue2": "workspace:^"
+    "@userback/vue2": 0.3.9
     core-js: ^3.32.2
     dotenv: ^16.3.1
     nuxt: ^2.17.1
@@ -10106,7 +10093,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-nuxt@workspace:examples/nuxt"
   dependencies:
-    "@userback/vue": "workspace:^"
+    "@userback/vue": 0.3.9
     dotenv: ^16.3.1
     nuxt: ^3.7.4
     serve: ^14.2.1
@@ -10119,7 +10106,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@userback/react": "workspace:^"
+    "@userback/react": 0.3.9
     "@vitejs/plugin-react": ^2.2.0
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -10135,7 +10122,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@userback/react": "workspace:^"
+    "@userback/react": 0.3.9
     "@vitejs/plugin-react": ^2.2.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -10148,7 +10135,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-vue2@workspace:examples/vue2"
   dependencies:
-    "@userback/vue2": "workspace:^"
+    "@userback/vue2": 0.3.9
     vite: ^2.9.16
     vite-plugin-vue2: ^2.0.3
     vue: ^2.7.14
@@ -10160,7 +10147,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-vue@workspace:examples/vue"
   dependencies:
-    "@userback/vue": "workspace:^"
+    "@userback/vue": 0.3.9
     "@vitejs/plugin-vue": ^3.2.0
     typescript: ^4.9.5
     vite: ^3.2.7
