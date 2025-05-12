@@ -85,7 +85,8 @@ export interface UserbackOptions {
     before_send?: Function,
     /* The after_send event is triggered after feedback has been submitted to Userback */
     after_send?: (data: UserbackAfterSendData) => any, // eslint-disable-line
-
+    /* user data to be sent to Userback */
+    user_data?: any,
     // Userback Module Specific functions (not in window.Userback.init().options)
     autohide?: boolean,
 }
