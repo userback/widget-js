@@ -41,6 +41,7 @@
     "**/dist/*",
     "**/rollup.config.js",
     "**/vite-env.d.ts",
+    "legacy/**/*",
     "docs/**/*"
   ]
 }

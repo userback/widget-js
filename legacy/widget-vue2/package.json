@@ -1,0 +1,55 @@
+{
+  "name": "@userback/vue2",
+  "description": "Userback.io widget for Vue2",
+  "version": "0.3.10",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/vue.mjs",
+      "require": "./dist/vue.cjs",
+      "types": "./dist/vue.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/vue.cjs",
+  "module": "dist/vue.mjs",
+  "umd": "dist/vue.umd.js",
+  "types": "dist/vue.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "tsc --noEmit",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@userback/widget": "0.3.9"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.5.0",
+    "rollup": "^2.79.1",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5",
+    "vue": "^2.7.14"
+  },
+  "peerDependencies": {
+    "vue": "^2"
+  },
+  "keywords": [
+    "userback",
+    "vue",
+    "vue2"
+  ],
+  "homepage": "https://github.com/userback/widget-js/tree/develop/widget-vue2#readme",
+  "bugs": {
+    "url": "https://github.com/userback/widget-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userback/widget-js.git"
+  },
+  "license": "MIT",
+  "typedoc": {
+    "entryPoint": "vue.tsx",
+    "readmeFile": "README.md"
+  },
+  "packageManager": "yarn@3.2.2"
+}
