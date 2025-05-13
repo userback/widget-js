@@ -17,4 +17,5 @@ const options: UserbackOptions = {
 // Initialise Userback and log the Userback object to console
 UserbackWidget(token, options).then((userback) => {
     console.log('🚀 Userback Widget Loaded', userback);
+    userback.open('general', 'screenshot');
 });
