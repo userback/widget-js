@@ -20,10 +20,6 @@ function App() {
         destroy,
     } = userback;
 
-    const handleOpen = function() {
-        open();
-    };
-
     return (
         <div className="App">
             <div>
@@ -38,7 +34,7 @@ function App() {
                     {count}
                 </button>
                 <hr />
-                <button type="button" onClick={handleOpen}>Open Bugs</button>
+                <button type="button" onClick={() => open('bug')}>Open Bugs</button>
                 <button type="button" onClick={() => open('general', 'screenshot')}>Screenshot me!</button>
                 <hr />
                 <button type="button" onClick={hideLauncher}>Hide</button>
