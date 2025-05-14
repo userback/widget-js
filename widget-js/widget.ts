@@ -98,6 +98,7 @@ export interface UserbackFunctions {
     show: () => void,
     hide: () => void,
     open: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
+    openForm: (feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType) => void,
     close: () => void,
     destroy: () => void,
     isLoaded: () => boolean,
