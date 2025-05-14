@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withUserback } from '@userback/react';
+import { withUserback } from './UserbackProvider'; // eslint-disable-line import/no-unresolved
 import reactLogo from './react.svg';
 
 // @TODO: Fix Typescript prop types and count prop
@@ -18,6 +18,9 @@ class App extends React.Component {
     render() {
         const { count } = this.state;
         const { userback } = this.props;
+
+        // Safe destructuring
+        const { open, hide, show } = userback ?? {};
         return (
             <div className="App">
                 <div>
@@ -32,11 +35,11 @@ class App extends React.Component {
                         {count}
                     </button>
                     <hr />
-                    <button type="button" onClick={() => userback.open('bug')}>Open Bugs</button>
-                    <button type="button" onClick={() => userback.open('general', 'screenshot')}>Screenshot me!</button>
+                    <button type="button" onClick={() => open?.('bug')}>Open Bugs</button>
+                    <button type="button" onClick={() => open?.('general', 'screenshot')}>Screenshot me!</button>
                     <hr />
-                    <button type="button" onClick={userback.hide}>Hide</button>
-                    <button type="button" onClick={userback.show}>Show</button>
+                    <button type="button" onClick={hide}>Hide</button>
+                    <button type="button" onClick={show}>Show</button>
                 </div>
             </div>
         );

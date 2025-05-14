@@ -5148,19 +5148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback/react@npm:0.3.9":
-  version: 0.3.9
-  resolution: "@userback/react@npm:0.3.9"
-  dependencies:
-    "@userback/widget": ^0.3.9
-  peerDependencies:
-    react: ">=17.0.0"
-    react-dom: ">=17.0.0"
-  checksum: 55292dfa13d231207e5896e7bedc0f86f59b94e7277be6112e58f4a436394cd3ccc556ddd54cf9f098af923ead712dd9ea1fde64e08d760663ddf9f6ead13d20
-  languageName: node
-  linkType: hard
-
-"@userback/vue2@npm:0.3.9":
+"@userback/vue2@npm:^0.3.9":
   version: 0.3.9
   resolution: "@userback/vue2@npm:0.3.9"
   dependencies:
@@ -5171,7 +5159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@userback/vue@npm:0.3.9":
+"@userback/vue@npm:0.3.9, @userback/vue@npm:^0.3.9":
   version: 0.3.9
   resolution: "@userback/vue@npm:0.3.9"
   dependencies:
@@ -10078,7 +10066,7 @@ __metadata:
   dependencies:
     "@nuxt/types": ^2.17.1
     "@nuxt/typescript-build": ^2.1.0
-    "@userback/vue2": 0.3.9
+    "@userback/vue2": ^0.3.9
     core-js: ^3.32.2
     dotenv: ^16.3.1
     nuxt: ^2.17.1
@@ -10106,7 +10094,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@userback/react": 0.3.9
+    "@userback/widget": "workspace:^"
     "@vitejs/plugin-react": ^2.2.0
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -10135,7 +10123,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-vue2@workspace:examples/vue2"
   dependencies:
-    "@userback/vue2": 0.3.9
+    "@userback/vue2": ^0.3.9
     vite: ^2.9.16
     vite-plugin-vue2: ^2.0.3
     vue: ^2.7.14
@@ -10147,7 +10135,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-vue@workspace:examples/vue"
   dependencies:
-    "@userback/vue": 0.3.9
+    "@userback/vue": ^0.3.9
     "@vitejs/plugin-vue": ^3.2.0
     typescript: ^4.9.5
     vite: ^3.2.7

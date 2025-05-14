@@ -9,7 +9,7 @@
     "serve": "yarn build && vite preview --host --port 3000"
   },
   "dependencies": {
-    "@userback/vue": "0.3.9",
+    "@userback/vue": "^0.3.9",
     "vue": "^3.3.4"
   },
   "devDependencies": {
