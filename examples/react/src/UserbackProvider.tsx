@@ -15,8 +15,7 @@ interface UserbackProviderProps {
 }
 
 // Get token from `../../.env`
-const token = "A-xtXCIX4j7s98BSz59dxzTZkcz";
-// const token = import.meta.env?.VITE_UB_TOKEN;
+const token = import.meta.env?.VITE_UB_TOKEN;
 const domain = import.meta.env?.VITE_UB_DOMAIN;
 
 export const UserbackProvider: React.FC<UserbackProviderProps> = ({ children }) => {
