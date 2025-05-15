@@ -24,7 +24,7 @@ bootstrapApplication(AppComponent, appConfig)
         const { injector } = ref;
         const userbackService = injector.get(UserbackService);
         // After app is bootstrapped, initialize Userback
-        const token = 'A-xtXCIX4j7s98BSz59dxzTZkcz'; // 'YOUR_USERBACK_TOKEN';
+        const token = 'YOUR_USERBACK_TOKEN';
         Userback(token, init_user_data)
             .then((userbackInstance) => {
                 userbackService.setInstance(userbackInstance);
