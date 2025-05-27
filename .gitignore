@@ -31,3 +31,7 @@ e2e/.yarnrc
 
 # Nuxt
 .nuxt
+
+#Angular
+.angular/cache
+.angular/

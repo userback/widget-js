@@ -1,7 +1,7 @@
 <p align="center"><img src="https://static.userback.io/image/logo_full.svg" alt="Logo" height="32px" /></p>
 
 # Userback Widgets
-:package: A Monolithic repository for [Userback.io](https://www.userback.io) npm packages
+A JavaScript widget package for integrating [Userback.io](https://www.userback.io) npm packages
 
 <p>
 <img alt="version" src="https://img.shields.io/github/package-json/v/userback/widget-js" />
@@ -10,11 +10,15 @@
 <img alt="license" src="https://img.shields.io/github/license/userback/widget-js" />
 </p>
 
-## Packages
-- [@userback/widget](widget-js/)
-- [@userback/react](widget-react/)
-- [@userback/vue](widget-vue/)
-- [@userback/vue2](widget-vue2/)
+## Package
+This repository contains the core package:
+- @userback/widget – A lightweight JavaScript widget for collecting user feedback via [Userback.io](https://www.userback.io).
+
+It also includes example integrations for popular frameworks like **React**, **Vue**, and **Vanilla JS** to help you quickly get started in your own project.
+
+## Getting Started
+
+To get started with installation and usage instructions, visit the [@userback/widget package on npm](https://github.com/userback/widget-js/tree/develop/widget-js).
 
 ## Developing and running examples
 After cloning the repo, you can install all dependencies and build the widgets with:
