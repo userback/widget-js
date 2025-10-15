@@ -85,10 +85,14 @@ export interface UserbackOptions {
     before_send?: Function,
     /* The after_send event is triggered after feedback has been submitted to Userback */
     after_send?: (data: UserbackAfterSendData) => any, // eslint-disable-line
+    /* The on_error event is triggered when the widget fails to initialize */
+    on_error?: (error: Error) => any, // eslint-disable-line
     /* user data to be sent to Userback */
     user_data?: any,
     // Userback Module Specific functions (not in window.Userback.init().options)
     autohide?: boolean,
+    /* Timeout in milliseconds for widget initialization (default: 30000) */
+    init_timeout?: number,
 }
 
 export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
@@ -161,7 +165,19 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         // Validation
         const error = (e: string | Event) => {
             UBLoadingPromise = undefined;
-            return reject(typeof e === 'string' ? new Error(e) : e);
+            const errorObj = typeof e === 'string' ? new Error(e) : e;
+
+            // Call user's on_error callback if provided
+            if (typeof opts?.on_error === 'function') {
+                try {
+                    opts.on_error(errorObj instanceof Error ? errorObj : new Error('Unknown error'));
+                } catch (callbackError) {
+                    // eslint-disable-next-line no-console
+                    console.error('Error in on_error callback:', callbackError);
+                }
+            }
+
+            return reject(errorObj);
         };
         if (typeof USERBACK !== 'undefined') {
             // eslint-disable-next-line no-console
@@ -173,6 +189,23 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         // Defaults
         const opts = typeof ubOptions === 'undefined' ? {} : ubOptions;
         const ubDomain = opts?.domain || 'userback.io';
+        const initTimeout = opts?.init_timeout || 30000; // Default 30 seconds
+
+        // Set up a timeout to prevent the promise from hanging indefinitely
+        let timeoutId: ReturnType<typeof setTimeout> | undefined;
+        let initCompleted = false;
+
+        const setupTimeout = () => {
+            timeoutId = setTimeout(() => {
+                if (!initCompleted) {
+                    error(
+                        `Userback widget initialization timed out after ${initTimeout}ms. `
+                        + 'This may indicate that the current domain is not allowed in your Userback project settings. '
+                        + 'Please check your project configuration at https://userback.io',
+                    );
+                }
+            }, initTimeout);
+        };
 
         // Custom options
         window.Userback = { request_url: `https://api.${ubDomain}` } as any;
@@ -184,10 +217,20 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         // When the script tag is finished loading, we will move the `window.Userback` reference to
         // this local module and then provide it back as a promise resolution.
         function onload() {
-            if (typeof window.Userback === 'undefined') { return error('`window.Userback` was somehow deleted while loading!'); }
+            if (typeof window.Userback === 'undefined') {
+                if (timeoutId) clearTimeout(timeoutId);
+                return error('`window.Userback` was somehow deleted while loading!');
+            }
+
+            // Start timeout after script loads but before init completes
+            setupTimeout();
+
             window.Userback.init(token, {
                 ...opts,
                 on_init: () => {
+                    initCompleted = true;
+                    if (timeoutId) clearTimeout(timeoutId);
+
                     USERBACK = window.Userback as UserbackWidget;
                     // @TODO: Cannot remove window.Userback as there are references inside the widget to it
                     // delete window.Userback
@@ -212,7 +255,10 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
         script.src = `https://static.${ubDomain}/widget/v1.js`;
         script.async = true;
         script.onload = onload;
-        script.addEventListener('error', error);
+        script.addEventListener('error', (e) => {
+            if (timeoutId) clearTimeout(timeoutId);
+            error(e);
+        });
         document.body.appendChild(script);
         return true;
     });
@@ -224,4 +270,74 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
  * */
 export function getUserback() {
     return USERBACK;
+}
+
+/**
+ * Safe wrapper for the 'open' method that provides helpful error messages
+ */
+export function safeOpen(feedback_type?: UserbackFeedbackType, destination?: UserbackDestinationType): void {
+    if (!USERBACK) {
+        throw new Error(
+            'Cannot call \'open\' - Userback widget is not initialized. '
+            + 'Please ensure the widget has been initialized successfully before calling this method. '
+            + 'Check that your domain is allowed in your Userback project settings.',
+        );
+    }
+    return USERBACK.open(feedback_type, destination);
+}
+
+/**
+ * Safe wrapper for the 'show' method that provides helpful error messages
+ */
+export function safeShow(): void {
+    if (!USERBACK) {
+        throw new Error(
+            'Cannot call \'show\' - Userback widget is not initialized. '
+            + 'Please ensure the widget has been initialized successfully before calling this method. '
+            + 'Check that your domain is allowed in your Userback project settings.',
+        );
+    }
+    return USERBACK.show();
+}
+
+/**
+ * Safe wrapper for the 'hide' method that provides helpful error messages
+ */
+export function safeHide(): void {
+    if (!USERBACK) {
+        throw new Error(
+            'Cannot call \'hide\' - Userback widget is not initialized. '
+            + 'Please ensure the widget has been initialized successfully before calling this method. '
+            + 'Check that your domain is allowed in your Userback project settings.',
+        );
+    }
+    return USERBACK.hide();
+}
+
+/**
+ * Safe wrapper for the 'showLauncher' method that provides helpful error messages
+ */
+export function safeShowLauncher(): void {
+    if (!USERBACK) {
+        throw new Error(
+            'Cannot call \'showLauncher\' - Userback widget is not initialized. '
+            + 'Please ensure the widget has been initialized successfully before calling this method. '
+            + 'Check that your domain is allowed in your Userback project settings.',
+        );
+    }
+    return USERBACK.showLauncher();
+}
+
+/**
+ * Safe wrapper for the 'hideLauncher' method that provides helpful error messages
+ */
+export function safeHideLauncher(): void {
+    if (!USERBACK) {
+        throw new Error(
+            'Cannot call \'hideLauncher\' - Userback widget is not initialized. '
+            + 'Please ensure the widget has been initialized successfully before calling this method. '
+            + 'Check that your domain is allowed in your Userback project settings.',
+        );
+    }
+    return USERBACK.hideLauncher();
 }
