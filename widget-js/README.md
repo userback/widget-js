@@ -44,9 +44,13 @@ Userback('**USERBACK_TOKEN**', {
 The module exports safe wrapper functions that provide helpful error messages when called on an uninitialized widget:
 
 ``` javascript
-import { safeOpen, safeShow, safeHide, safeShowLauncher, safeHideLauncher } from '@userback/widget';
+// You can import the default Userback function along with safe wrappers
+import Userback, { safeOpen, safeShow, safeHide, safeShowLauncher, safeHideLauncher } from '@userback/widget';
 
-// These will throw descriptive errors if the widget isn't initialized
+// Initialize the widget first
+await Userback('**USERBACK_TOKEN**');
+
+// Then use safe wrappers - these will throw descriptive errors if the widget isn't initialized
 safeOpen('bug');
 safeShow();
 ```
