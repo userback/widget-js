@@ -104,6 +104,8 @@ export interface UserbackFunctions {
     isLoaded: () => boolean,
     /* Open the feedback portal */
     openPortal: () => void,
+    openRoadmap: () => void,
+    openAnnouncement: () => void,
     setName: (name: string) => void,
     setEmail: (email: string) => void,
     setCategories: (categories: string) => void,
