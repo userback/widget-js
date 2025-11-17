@@ -76,6 +76,7 @@ export interface UserbackOptions {
     native_screenshot?: boolean,
     domain?: string,
     on_init?: Function,
+    on_init_error?: Function,
     on_load?: Function,
     /* The on_open event is triggered when the Feedback button is clicked */
     on_open?: Function,
@@ -204,6 +205,9 @@ export default function UserbackWidgetLoader(token: string, ubOptions?: Userback
                         UBLoadingPromise = undefined;
                     };
                     return resolve(USERBACK);
+                },
+                on_init_error: () => {
+                    reject(new Error('Invalid server response. Check your account or project settings and try again.'));
                 },
             });
             return true;
