@@ -35,7 +35,7 @@ import UserbackService from './userback.service';
 export default class ExampleComponent {
     count = 0;
 
-    // eslint-disable-next-line no-useless-constructor, no-empty-function
+    // eslint-disable-next-line no-useless-constructor, no-empty-function, no-unused-vars
     constructor(private userback: UserbackService) {}
 
     incrementCount() {

@@ -28,10 +28,13 @@ bootstrapApplication(AppComponent, appConfig)
         Userback(token, init_user_data)
             .then((userbackInstance) => {
                 userbackService.setInstance(userbackInstance);
+                // eslint-disable-next-line no-console
                 console.log('Userback successfully initialized');
             })
             .catch((err) => {
+                // eslint-disable-next-line no-console
                 console.error('Failed to load Userback', err);
             });
     })
+    // eslint-disable-next-line no-console
     .catch((err) => console.error(err));
