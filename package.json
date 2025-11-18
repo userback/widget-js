@@ -1,7 +1,7 @@
 {
   "name": "root",
   "description": "Root workspace for userback.io npm packages",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "license": "MIT",
   "private": true,
   "workspaces": [
