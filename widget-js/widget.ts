@@ -92,7 +92,7 @@ export interface UserbackOptions {
     autohide?: boolean,
 }
 
-export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request'
+export type UserbackFeedbackType = 'general' | 'bug' | 'feature_request' | 'task'
 export type UserbackDestinationType = 'screenshot' | 'video' | 'form'
 export interface UserbackFunctions {
     init: (token: string, options?: UserbackOptions) => Promise<UserbackWidget>,
